@@ -1,0 +1,26 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2019-01-31 21:24+0300\n"
+"PO-Revision-Date: 2019-01-31 21:24+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: fast_layout.py\n"
+
+#: fast_layout.py:173
+msgid "Camera mount angle"
+msgstr ""
+
+#~ msgid "Workflow"
+#~ msgstr "Plugins"
+
+#~ msgid "Apply Vertical Camera Alignment"
+#~ msgstr "Apply Vertical Camera Alignment"

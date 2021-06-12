@@ -1,0 +1,91 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2018-05-11 16:16+0300\n"
+"PO-Revision-Date: 2018-05-11 16:16+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.4\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: msk_grid_builder.py:11
+msgid "Generate MSK grid"
+msgstr ""
+
+#: msk_grid_builder.py:12 shape_worker.py:12
+msgid "Region"
+msgstr ""
+
+#: msk_grid_builder.py:14
+msgid "Easting\t\t"
+msgstr ""
+
+#: msk_grid_builder.py:23
+msgid "Northing\t\t"
+msgstr ""
+
+#: msk_grid_builder.py:30
+msgid "Zone number in Easting coordinates"
+msgstr ""
+
+#: msk_grid_builder.py:33
+msgid "MSK parameters"
+msgstr ""
+
+#: msk_grid_builder.py:35
+msgid "Number:"
+msgstr ""
+
+#: msk_grid_builder.py:37
+msgid "Zone:"
+msgstr ""
+
+#: msk_grid_builder.py:49
+msgid "Create"
+msgstr ""
+
+#: msk_grid_builder.py:59
+msgid "Wrong values!"
+msgstr ""
+
+#: shape_worker.py:10
+msgid "Generate grid"
+msgstr ""
+
+#: shape_worker.py:19
+msgid "X"
+msgstr ""
+
+#: shape_worker.py:28
+msgid "Y"
+msgstr ""
+
+#: shape_worker.py:31
+msgid "Fill by selected shape"
+msgstr ""
+
+#: shape_worker.py:34
+msgid "Cells count"
+msgstr ""
+
+#: shape_worker.py:45
+msgid "Cell size"
+msgstr ""
+
+#: shape_worker.py:56
+msgid "Overlap"
+msgstr ""
+
+#: shape_worker.py:65 shape_worker.py:111
+msgid "Generate"
+msgstr ""
+
+#: shape_worker.py:107
+msgid "Remove"
+msgstr ""

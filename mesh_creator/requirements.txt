@@ -1,0 +1,5 @@
+triangle==20200424
+numpy==1.20.3+mkl
+Shapely==1.7.1
+scipy==1.6.0
+PySide2

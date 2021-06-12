@@ -1,0 +1,47 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2019-06-18 14:04+0300\n"
+"PO-Revision-Date: 2019-06-18 14:04+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: ExportImportModelGui.py:78
+msgid "Export/Import model by marker"
+msgstr ""
+
+#: ExportImportModelGui.py:79
+msgid "Markers"
+msgstr ""
+
+#: ExportImportModelGui.py:80
+msgid "Models"
+msgstr ""
+
+#: ExportImportModelGui.py:81
+msgid "Export"
+msgstr ""
+
+#: ExportImportModelGui.py:82 ExportImportModelGui.py:84
+msgid "Browse"
+msgstr ""
+
+#: ExportImportModelGui.py:83
+msgid "Import"
+msgstr ""
+
+#: expimp_by_marker.py:23
+msgid "Create model to export"
+msgstr ""
+
+#: expimp_by_marker.py:28
+msgid "Choose model to import"
+msgstr ""

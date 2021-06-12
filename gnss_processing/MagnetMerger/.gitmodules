@@ -1,0 +1,3 @@
+[submodule "flight_info_tools"]
+	path = flight_info_tools
+	url = git@gitlab.corp.geoscan.aero:e.baryshkov/flight_info_tools.git

@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2021-06-11 18:51+0300\n"
+"PO-Revision-Date: 2021-06-11 18:51+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: crs_uploader_gui.py:79
+msgid "New CRS added to Agisoft Metashape!"
+msgstr "Новые системы координат добавлены в Agisoft Metashape!"
+
+#: crs_uploader_gui.py:83
+msgid "New CRS added to Magnet Tools!"
+msgstr "Новые системы координат добавлены в Magnet Tools!"
+
+#: crs_uploader_gui.py:85
+msgid "Input txt file doesn't exist or Magnet Tools is not installed"
+msgstr "Входной txt файл отсутствует или Magnet Tools не установлен"
+
+#~ msgid "Reload Metashape (Magnet Tools) and enjoy new CRS!"
+#~ msgstr ""
+#~ "Перезагрузите Agisoft Metashape (Magnet Tools) и наслаждайтесь новыми "
+#~ "системами координат!"
+
+#~ msgid "Planner file"
+#~ msgstr "Файл самолета"
+
+#~ msgid "Open file"
+#~ msgstr "Открыть файл"
+
+#~ msgid "Gnss file"
+#~ msgstr "ГНСС файл"
+
+#~ msgid "Save to file"
+#~ msgstr "Сохранить в файл"
+
+#~ msgid "Result file"
+#~ msgstr "Результат"
+
+#~ msgid "Select"
+#~ msgstr "Выбор"
+
+#~ msgid "Update reference"
+#~ msgstr "Обновить привязку"
+
+#~ msgid "Merging done"
+#~ msgstr "Объединение завершено"
+
+#~ msgid "Merge two files"
+#~ msgstr "Объединить два файла"
+
+#~ msgid "Chose directory"
+#~ msgstr "Выберите каталог"
+
+#~ msgid "Incorrect path!"
+#~ msgstr "Заданный путь не существует!"
+
+#~ msgid ""
+#~ "Path: \"{}\"\n"
+#~ "Is not a directory!"
+#~ msgstr ""
+#~ "Путь:\n"
+#~ "{}\n"
+#~ "Не является существующей директорией!"
+
+#~ msgid "Unexpected error!"
+#~ msgstr ""
+#~ "Неожиданная ошибка!\n"
+#~ "{}"
+
+#~ msgid "Processing finished!"
+#~ msgstr "Обработка завершена"
+
+#~ msgid "Processing finished successfully!"
+#~ msgstr "Обработка успешно завершена"

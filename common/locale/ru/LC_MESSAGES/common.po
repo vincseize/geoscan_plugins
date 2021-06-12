@@ -1,0 +1,594 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2021-06-12 15:10+0300\n"
+"PO-Revision-Date: 2021-06-12 15:10+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: ../../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: common\n"
+"X-Poedit-SearchPath-1: show_all.py\n"
+"X-Poedit-SearchPath-2: installed_plugins\n"
+"X-Poedit-SearchPathExcluded-0: common/loggers\n"
+
+#: common/qt_wrapper/qt_wrapper.py:474 common/startup/change_log.py:39
+msgid "Ok"
+msgstr "Ок"
+
+#: common/startup/auto_update.py:66
+msgid "Updating scripts"
+msgstr "Обновление плагинов"
+
+#: common/startup/auto_update.py:185
+msgid "Agisoft Metashape plugins"
+msgstr "Плагины Agisoft Metashape"
+
+#: common/startup/auto_update.py:186
+msgid "Do you want to update plugins?"
+msgstr "Хотите обновить плагины?"
+
+#: common/startup/auto_update.py:231
+msgid "Python packages update is required (Internet connection is required)."
+msgstr ""
+"Необходимо обновление пакетов python (требуется подключение к Интернету)."
+
+#: common/startup/auto_update.py:232
+msgid "Please, close all other Agisoft Metashape applications or click Cancel."
+msgstr ""
+"Пожалуйста, закройте открытые проекты Agisoft Metashape, либо отмените "
+"обновление."
+
+#: common/startup/auto_update.py:249 common/startup/auto_update.py:253
+msgid "Installing site-packages"
+msgstr "Устанавливаем библиотеки"
+
+#: common/startup/auto_update.py:340
+msgid "Update resources"
+msgstr "Обновление файлов ресурсов"
+
+#: common/startup/requirements_utils.py:122
+msgid "Download python package..."
+msgstr "Скачивается python пакет..."
+
+#: common/startup/settings.py:15 installed_plugins/plugins_configurator.py:32
+msgid "Plugins Settings"
+msgstr "Настройки плагинов"
+
+#: common/startup/settings.py:27
+msgid "Get auto updates for Plugins"
+msgstr "Получать автоматические обновления плагинов"
+
+#: common/startup/settings.py:32
+msgid "Send error logs to developers"
+msgstr "Отправлять анонимные логи ошибок разработчикам"
+
+#: common/startup/settings.py:65
+msgid "Please, re-run Agisoft Metashape to apply new settings"
+msgstr ""
+"Пожалуйста, перезапустите Agisoft Metashape для применения новых настроек"
+
+#: common/utils/PluginBase.py:60
+msgid "Chose directory"
+msgstr "Выберите каталог"
+
+#: common/utils/PluginBase.py:68
+msgid "Chose file"
+msgstr "Выберите файл"
+
+#: common/utils/PluginBase.py:119
+msgid "Not a directory"
+msgstr "Не является директорией"
+
+#: common/utils/PluginBase.py:120
+msgid ""
+"Path:\n"
+"{}\n"
+"Is not an existing directory!"
+msgstr ""
+"Путь:\n"
+"{}\n"
+"Не является существующей директорией!"
+
+#: common/utils/PluginBase.py:154 common/utils/PluginBase.py:164
+msgid "Processing failed!"
+msgstr "Обработка завершилась неудачно!"
+
+#: common/utils/PluginBase.py:155 common/utils/PluginBase.py:165
+msgid ""
+"Unexpected error!\n"
+"{}"
+msgstr ""
+"Неожиданная ошибка!\n"
+"{}"
+
+#: common/utils/PluginBase.py:179
+msgid "Aborted by user!"
+msgstr "Прервано пользователем!"
+
+#: common/utils/PluginBase.py:179
+msgid "Processing stopped! Aborted by user!"
+msgstr "Обработка остановлена! Прервано пользователем!"
+
+#: common/utils/PluginBase.py:181
+msgid "Processing finished!"
+msgstr "Обработка завершена!"
+
+#: common/utils/colors.py:27 common/utils/colors.py:34
+msgid "Color error"
+msgstr "Ошибка цвета"
+
+#: common/utils/colors.py:27 common/utils/colors.py:34
+msgid "Not valid color: "
+msgstr "Неверный цвет: "
+
+#: common/utils/helpers.py:42
+msgid "Error"
+msgstr "Ошибка"
+
+#: common/utils/helpers.py:42
+msgid "Please open document which you want to work with!"
+msgstr "Пожалуйста откройте документ, с которым хотите работать!"
+
+#: common/utils/helpers.py:61
+msgid "No camera selected"
+msgstr "Не выбрана камера"
+
+#: common/utils/helpers.py:61
+msgid "Please select camera you want to work with"
+msgstr "Выберите камеру, с которой хотите работать"
+
+#: installed_plugins/anchor_finder.py:31 installed_plugins/anchor_finder.py:35
+#: installed_plugins/auto_gamma_correction.py:29
+#: installed_plugins/camera_cloner.py:29 installed_plugins/camera_mover.py:29
+#: installed_plugins/fast_layout.py:29
+#: installed_plugins/hide_objects_in_photos_by_shape.py:30
+#: installed_plugins/image_channel_mixer.py:29
+#: installed_plugins/make_masks_from_shapes.py:29
+#: installed_plugins/quality_estimator.py:29
+#: installed_plugins/remove_image_duplicates.py:29
+msgid "Cameras"
+msgstr "Камеры"
+
+#: installed_plugins/anchor_finder.py:31
+msgid "Circle finder"
+msgstr "Поиск круглых маркеров"
+
+#: installed_plugins/anchor_finder.py:35
+msgid "Sandclock finder"
+msgstr "Поиск песочных часов"
+
+#: installed_plugins/auto_gamma_correction.py:29
+msgid "Auto-gamma correction"
+msgstr "Автокоррекция гаммы снимков"
+
+#: installed_plugins/buffer_by_markers.py:29
+#: installed_plugins/export_by_shapes.py:29
+#: installed_plugins/export_dc_by_shape.py:29
+#: installed_plugins/msk_grid_builder.py:29
+#: installed_plugins/noise_detector.py:29 installed_plugins/roof_finder.py:29
+#: installed_plugins/set_altitudes_for_shape.py:29
+#: installed_plugins/shape_utils.py:30 installed_plugins/shape_worker.py:29
+#: installed_plugins/simplify_seamlines.py:29
+msgid "Shape"
+msgstr "Фигуры"
+
+#: installed_plugins/buffer_by_markers.py:29
+msgid "Create buffer zone"
+msgstr "Построить буферную зону"
+
+#: installed_plugins/camera_cloner.py:29
+msgid "Copy images"
+msgstr "Скопировать изображения"
+
+#: installed_plugins/camera_coordinates_report.py:29
+#: installed_plugins/camera_mapinfo.py:29
+#: installed_plugins/filter_seamlines.py:29
+#: installed_plugins/roscartography_export.py:29
+#: installed_plugins/roscartography_metadata.py:29
+msgid "Roscartography tools"
+msgstr "Роскартография"
+
+#: installed_plugins/camera_coordinates_report.py:29
+msgid "Camera coordinates reports"
+msgstr "Каталоги координат центров фотографирования"
+
+#: installed_plugins/camera_mapinfo.py:29
+msgid "MapInfo table \"Cameras\""
+msgstr "Таблица MapInfo \"Снимки\""
+
+#: installed_plugins/camera_mover.py:29
+msgid "Move cameras to other chunk"
+msgstr "Переместить камеры в другой блок"
+
+#: installed_plugins/chunk_region_setter.py:29
+#: installed_plugins/compute_image_contrast_metrics.py:29
+#: installed_plugins/crs_uploader.py:29
+#: installed_plugins/processing_thermal_images.py:29
+#: installed_plugins/srtm_downloader.py:29
+#: installed_plugins/tab_generation.py:29 installed_plugins/tv_stitch.py:29
+msgid "Other"
+msgstr "Другое"
+
+#: installed_plugins/chunk_region_setter.py:29
+msgid "Set region"
+msgstr "Установка региона"
+
+#: installed_plugins/cluster_nodes_manager.py:29
+#: installed_plugins/cluster_processing_manager.py:29
+#: installed_plugins/node_controller.py:29 installed_plugins/pause_node.py:29
+msgid "Cluster"
+msgstr "Кластер"
+
+#: installed_plugins/cluster_nodes_manager.py:29
+msgid "Cluster Nodes Manager"
+msgstr "Менеджер узлов в кластере (Политех)"
+
+#: installed_plugins/cluster_processing_manager.py:29
+msgid "Pocket processing manager"
+msgstr "Менеджер пакетной обработки"
+
+#: installed_plugins/collect_projects_info.py:29
+#: installed_plugins/create_project.py:29 installed_plugins/testing_uav.py:29
+msgid "Project"
+msgstr "Проект"
+
+#: installed_plugins/collect_projects_info.py:29
+msgid "Collect projects processing info"
+msgstr "Сбор информации об обработке проектов"
+
+#: installed_plugins/compute_image_contrast_metrics.py:29
+msgid "Compute image contrast metrics"
+msgstr "Вычислить частотно-контрастные характеристики снимка"
+
+#: installed_plugins/create_project.py:29
+msgid "Create project from dir"
+msgstr "Создать проект из каталога"
+
+#: installed_plugins/crs_uploader.py:29
+msgid "Upload User's Coordinates Systems"
+msgstr "Добавить пользовательские системы координат"
+
+#: installed_plugins/database_tools_upload_flights_data.py:29
+msgid "Database"
+msgstr "База данных"
+
+#: installed_plugins/database_tools_upload_flights_data.py:29
+msgid "Upload flights data"
+msgstr "Загрузить данные полетов"
+
+#: installed_plugins/expimp_by_marker.py:29
+#: installed_plugins/export_model_by_shape.py:29
+#: installed_plugins/mesh_creator.py:29 installed_plugins/model_injector.py:29
+#: installed_plugins/partial_mesh_builder.py:29
+msgid "Model"
+msgstr "Модель"
+
+#: installed_plugins/expimp_by_marker.py:29
+msgid "Export\\Import model by marker"
+msgstr "Экспорт\\Импорт модели по маркеру"
+
+#: installed_plugins/export_by_shapes.py:29
+msgid "Export by shape"
+msgstr "Экспортировать по фигурам"
+
+#: installed_plugins/export_dc_by_shape.py:29
+msgid "Export dense cloud by shape"
+msgstr "Экспорт плотного облака по фигурам"
+
+#: installed_plugins/export_model_by_shape.py:29
+msgid "Clipping model by shape"
+msgstr "Обрезать модель по фигуре"
+
+#: installed_plugins/fast_layout.py:29
+msgid "Apply Vertical Camera Alignment"
+msgstr "Вертикальное выравнивание"
+
+#: installed_plugins/filling_holes_in_rinex.py:29
+#: installed_plugins/gnss_post_processing.py:29
+#: installed_plugins/magnet_merger.py:29
+#: installed_plugins/ppp_interpolator.py:29
+#: installed_plugins/rinex_thinning.py:29
+msgid "GNSS"
+msgstr "ГНСС"
+
+#: installed_plugins/filling_holes_in_rinex.py:29
+msgid "Filling holes in RINEX"
+msgstr "Заполнение пропусков в RINEX"
+
+#: installed_plugins/filter_seamlines.py:29
+msgid "Filter seamlines"
+msgstr "Фильтрация линий реза"
+
+#: installed_plugins/gnss_post_processing.py:29
+msgid "GNSS Post Processing"
+msgstr "Обработка геодезических измерений"
+
+#: installed_plugins/hide_objects_in_photos_by_shape.py:30
+msgid "Hide objects in photos by shape"
+msgstr "Спрятать объект в контуре"
+
+#: installed_plugins/image_channel_mixer.py:29
+msgid "Image Channel Mixer"
+msgstr "Микшер каналов изображения"
+
+#: installed_plugins/magnet_merger.py:29
+msgid "Merge MAGNET XMLs"
+msgstr "Соединить MAGNET XML-файлы"
+
+#: installed_plugins/make_masks_from_shapes.py:29
+msgid "Make masks from shapes"
+msgstr "Построить маски по контурам"
+
+#: installed_plugins/mesh_creator.py:29
+msgid "Build Walls"
+msgstr "Построить стены"
+
+#: installed_plugins/model_injector.py:29
+msgid "Import model by shapes"
+msgstr "Загрузить модель по фигурам"
+
+#: installed_plugins/msk_grid_builder.py:29
+msgid "Build MSK grid"
+msgstr "Построить номенклатурную разграфку"
+
+#: installed_plugins/node_controller.py:29
+msgid "Nodes controller"
+msgstr "Монитор узлов"
+
+#: installed_plugins/noise_detector.py:29
+msgid "Noise detector"
+msgstr "Поиск шума"
+
+#: installed_plugins/partial_mesh_builder.py:29
+msgid "Build mesh by shape"
+msgstr "Построить модели по контурам"
+
+#: installed_plugins/pause_node.py:29
+msgid "Plugins"
+msgstr "Плагины"
+
+#: installed_plugins/pause_node.py:29
+msgid "Pause Node By ID"
+msgstr "Приостановить узел по ID"
+
+#: installed_plugins/plugins_configurator.py:29
+#: installed_plugins/plugins_configurator.py:32
+msgid "Settings"
+msgstr "Настройки"
+
+#: installed_plugins/plugins_configurator.py:29
+msgid "Configure plugins"
+msgstr "Конфигуратор плагинов"
+
+#: installed_plugins/ppp_interpolator.py:29
+msgid "Run PPP Canadian Interpolator"
+msgstr "PPP Интерполятор NRCAN"
+
+#: installed_plugins/processing_thermal_images.py:29
+msgid "Processing thermal images"
+msgstr "Обработка тепловизионных снимков"
+
+#: installed_plugins/quality_estimator.py:29
+msgid "Estimate images quality"
+msgstr "Оценка качества исходных снимков"
+
+#: installed_plugins/remove_image_duplicates.py:29
+msgid "Remove image duplicates"
+msgstr "Удалить дублирующиеся изображения"
+
+#: installed_plugins/rinex_thinning.py:29
+msgid "RINEX thinning"
+msgstr "Прореживание RINEX"
+
+#: installed_plugins/roof_finder.py:29
+msgid "Roof finder"
+msgstr "Поиск крыш"
+
+#: installed_plugins/roscartography_export.py:29
+msgid "Advanced export"
+msgstr "Расширенный экспорт"
+
+#: installed_plugins/roscartography_metadata.py:29
+msgid "Create XML metadata for orthomosaics"
+msgstr "Создание XML метаданных для ортофотопланов"
+
+#: installed_plugins/set_altitudes_for_shape.py:29
+msgid "Set altitude for shape"
+msgstr "Задать высоту выбранной фигуре"
+
+#: installed_plugins/shape_utils.py:30
+msgid "Shape utils"
+msgstr "Работа с фигурами"
+
+#: installed_plugins/shape_worker.py:29
+msgid "Build grid"
+msgstr "Построить регулярную сетку"
+
+#: installed_plugins/simplify_seamlines.py:29
+msgid "Simplify seamlines"
+msgstr "Упростить линии реза"
+
+#: installed_plugins/srtm_downloader.py:29
+msgid "Download SRTM DEM"
+msgstr "Скачать SRTM"
+
+#: installed_plugins/tab_generation.py:29
+msgid "Create TAB metadata for orthomosaics"
+msgstr "Создание TAB метаданных для ортофотопланов"
+
+#: installed_plugins/testing_uav.py:29
+msgid "Run Testing UAV"
+msgstr "Запустить тестирование БПЛА"
+
+#: installed_plugins/tv_stitch.py:29
+msgid "Teplovision params"
+msgstr "Тепловизионные параметры"
+
+#: installed_plugins/wires_search.py:29
+msgid "PTL"
+msgstr "ЛЭП"
+
+#: installed_plugins/wires_search.py:29
+msgid "Sort powerlines by lines"
+msgstr "Сортировать провода по пролетам"
+
+#: show_all.py:48
+msgid "Help"
+msgstr "Справка"
+
+#~ msgid "PhotoScan plugins"
+#~ msgstr "Плагины Agisoft Metashape"
+
+#~ msgid "Open log"
+#~ msgstr "Открыть лог"
+
+#~ msgid "About"
+#~ msgstr "Справка"
+
+#~ msgid "Remove Trash"
+#~ msgstr "Удалить мусор"
+
+#~ msgid "Switch branch"
+#~ msgstr "Переключить ветку"
+
+#~ msgid "Dense Cloud"
+#~ msgstr "Плотное облако"
+
+#~ msgid "Align Clouds"
+#~ msgstr "Совмещение плотных облаков"
+
+#~ msgid "Reclassify points by contour"
+#~ msgstr "Реклассифицировать точки по контуру"
+
+#~ msgid "Power Lines Designer"
+#~ msgstr "Конструктор линий электропередач"
+
+#~ msgid "Build model"
+#~ msgstr "Построение модели"
+
+#~ msgid "Powerlines"
+#~ msgstr "ЛЭП"
+
+#~ msgid "Generate Report"
+#~ msgstr "Создать отчет"
+
+#~ msgid "Place towers"
+#~ msgstr "Поставить опоры из PTL"
+
+#~ msgid "Export results by Roscartography pattern"
+#~ msgstr "Экспорт материалов"
+
+#~ msgid "Generate chunks by shapes"
+#~ msgstr "Сгенерировать блоки по фигурам"
+
+#~ msgid "Build a linear buffer zone by markers"
+#~ msgstr "Построить линейную буферную зону по маркерам"
+
+#~ msgid "Hide disabled"
+#~ msgstr "Убрать заблокированные"
+
+#~ msgid "By marker"
+#~ msgstr "По маркеру"
+
+#~ msgid "MyWires"
+#~ msgstr "Мои Провода"
+
+#~ msgid "Wire Projector"
+#~ msgstr "Проектирование проводов"
+
+#~ msgid "Cloud subsample"
+#~ msgstr "Уменьшение числа точек"
+
+#~ msgid "Export dense clouds"
+#~ msgstr "Экспортировать плотное облако"
+
+#~ msgid "Upload flights in CameralProjectsDB"
+#~ msgstr "Загрузить полеты в CameralProjectsDB"
+
+#~ msgid "Testing UAV"
+#~ msgstr "Тестирование БПЛА"
+
+#~ msgid "Generate report"
+#~ msgstr "Составить АКП"
+
+#~ msgid "Chunk"
+#~ msgstr "Блок"
+
+#~ msgid "Start cadaster work"
+#~ msgstr "Начать кадастровую работу"
+
+#~ msgid "Experimental"
+#~ msgstr "Экспериментальные"
+
+#~ msgid "Chunk cutter"
+#~ msgstr "Разбиение блока"
+
+#~ msgid "Delete points of class"
+#~ msgstr "Удалить точки класса"
+
+#~ msgid "Contour utils"
+#~ msgstr "Утилиты"
+
+#~ msgid "Export"
+#~ msgstr "Экспорт"
+
+#~ msgid "Merge two files"
+#~ msgstr "Объединить два файла"
+
+#~ msgid "Mesh"
+#~ msgstr "Модель"
+
+#~ msgid "LAP"
+#~ msgstr "Загрузить интерфейс"
+
+#~ msgid "Generate grid"
+#~ msgstr "Построить сетку"
+
+#, fuzzy
+#~| msgid "Build model"
+#~ msgid "Build mesh partial"
+#~ msgstr "Построение модели"
+
+#~ msgid "Remove Idle Nodes"
+#~ msgstr "Удаление неактивных узлов"
+
+#~ msgid "Curve Stats"
+#~ msgstr "Статистика по проводам"
+
+#~ msgid "Cut mesh by contours"
+#~ msgstr "Обрезать модель по контуру"
+
+#~ msgid "Plugin manual update needed"
+#~ msgstr "Необходимо ручное обновление плагинов"
+
+#~ msgid ""
+#~ "Please update your plugins manually! You can download new version from "
+#~ "jenkins!"
+#~ msgstr ""
+#~ "Пожалуйста обновите плагины вручную. Нажмите \"да\" для перехода на "
+#~ "jenkins."
+
+#~ msgid "Find circles"
+#~ msgstr "Ищем круги"
+
+#~ msgid "Can't find required site-packages"
+#~ msgstr "Ошибка поиска необходимых библиотек"
+
+#~ msgid "Error importing"
+#~ msgstr "Ошибка импорта"
+
+#~ msgid "Error importing {}. Try to install site-packages?"
+#~ msgstr "Ошибка импорта {}. Попытаться исправить?"
+
+#~ msgid "Successfully installed"
+#~ msgstr "Успешно установлено."
+
+#~ msgid "You need to re-run photoscan"
+#~ msgstr "Необходимо закрыть и открыть фотоскан."

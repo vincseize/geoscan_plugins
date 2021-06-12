@@ -1,0 +1,17 @@
+auto_gamma_correction
+buffer_by_markers
+chunk_region_setter
+crs_uploader
+expimp_by_marker
+export_by_shapes
+fast_layout
+gnss_post_processing
+image_channel_mixer
+magnet_merger
+make_masks_from_shapes
+mesh_creator
+msk_grid_builder
+plugins_configurator
+quality_estimator
+set_altitudes_for_shape
+shape_worker

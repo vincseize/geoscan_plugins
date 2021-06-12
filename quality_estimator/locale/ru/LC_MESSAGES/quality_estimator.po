@@ -1,0 +1,45 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2021-02-02 13:39+0300\n"
+"PO-Revision-Date: 2021-02-02 13:56+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: ../common/loggers\n"
+
+#: estimate_quality.py:16
+msgid ""
+"Set number of images that will be randomly selected \n"
+"from the chunk to estimate sharpness.\n"
+"\n"
+"Result - 10 filtered images.The first 5 images are the sharpest,\n"
+"the next five are the most blurry of the random set.\n"
+msgstr ""
+"Задайте число снимков, которые будут выбраны\n"
+"в случайном порядке из блока для оценки\n"
+"резкости снимков.\n"
+"\n"
+"Результат - 10 отфильтрованных снимков. \n"
+"Первые пять - с наибольшей резкостью, \n"
+"следующие пять - с наибольшим смазом из набора.\n"
+
+#: estimate_quality.py:21
+msgid "Number of images to estimate:"
+msgstr "Число снимков для оценки:"
+
+#: estimate_quality.py:26
+msgid "Run"
+msgstr "Запустить"
+
+#: estimate_quality.py:62
+msgid "Estimating Image quality"
+msgstr "Оценка качества снимков"
