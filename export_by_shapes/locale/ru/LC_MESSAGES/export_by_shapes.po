@@ -1,0 +1,211 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2019-01-31 21:21+0300\n"
+"PO-Revision-Date: 2019-01-31 21:22+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: export_by_shapes.py\n"
+"X-Poedit-SearchPath-1: export_by_shapes_gui.py\n"
+
+#: export_by_shapes_gui.py:108
+msgid "Successfully exported!"
+msgstr "Успешно экспортировано!"
+
+#: export_by_shapes_gui.py:158
+msgid "Unexpected error"
+msgstr "Неожиданная ошибка"
+
+#: export_by_shapes_gui.py:158
+msgid "Cannot resolve string \"{}\" and existing grid model"
+msgstr ""
+"Не получилось соотнести строку \"{}\" и существующую регулярно-ячеистую "
+"модель"
+
+#: export_by_shapes_gui.py:175
+msgid "Not a directory"
+msgstr "Не папка"
+
+#: export_by_shapes_gui.py:176
+msgid ""
+"Path:\n"
+"{}\n"
+"Is not an existing directory!"
+msgstr ""
+"Путь:\n"
+"{}\n"
+"Не является существующей директорией!"
+
+#: export_by_shapes_gui.py:183
+msgid "Empty shapes list"
+msgstr "Пустой список фигур"
+
+#: export_by_shapes_gui.py:184
+msgid ""
+"Group: \"{}\" is empty!\n"
+"Choose other shapes group"
+msgstr ""
+"Группа: \"{}\" пустая!\n"
+"Выберите другую группу фигур"
+
+#: export_by_shapes_gui.py:191
+msgid "Empty data source"
+msgstr "Пустой источник данных"
+
+#: export_by_shapes_gui.py:192
+msgid "There is no {} in chunk!"
+msgstr "Нет модели {} в блоке!"
+
+#: export_by_shapes_gui.py:219
+msgid "Empty chunk!"
+msgstr "Пустой блок!"
+
+#~ msgid "Processing successfully completed"
+#~ msgstr "Обработка успешно завершена"
+
+#~ msgid "Chose directory"
+#~ msgstr "Выберите каталог"
+
+#~ msgid "Processing completed"
+#~ msgstr "Обработка завершена"
+
+#~ msgid "Incorrect path!"
+#~ msgstr "Неправильный путь!"
+
+#~ msgid "Selected projects TXT path is not a file!"
+#~ msgstr "Выбранный путь к TXT не является файлом!"
+
+#~ msgid "Error due processing!"
+#~ msgstr "Ошибка процессе работы!"
+
+#~ msgid ""
+#~ "Error message:\n"
+#~ "{}"
+#~ msgstr ""
+#~ "Сообщение об ошибке:\n"
+#~ "{}"
+
+#~ msgid "Completed"
+#~ msgstr "Выполнено"
+
+#~ msgid "Incorrect values!"
+#~ msgstr "Неверные значения!"
+
+#~ msgid ""
+#~ "Incorrect values!\n"
+#~ "Check that all numeric values are filled"
+#~ msgstr ""
+#~ "Неверные значения!\n"
+#~ "Убедитесь, что все числовые значения заполнены"
+
+#~ msgid "Paths"
+#~ msgstr "Пути"
+
+#~ msgid "Select TXT-file with projects paths"
+#~ msgstr "Выберите TXT файл с путями проектов"
+
+#~ msgid "File"
+#~ msgstr "Файл"
+
+#~ msgid "Select directory for results"
+#~ msgstr "Выберите папку для экспорта результатов"
+
+#~ msgid "Ignore completed steps"
+#~ msgstr "Игнорировать выполненные этапы"
+
+#~ msgid "Steps"
+#~ msgstr "Шаги"
+
+#~ msgid "Align"
+#~ msgstr "Выравнивание"
+
+#~ msgid "Try realign photos without alignment"
+#~ msgstr "Выравнивание не выравненных снимков"
+
+#~ msgid "Check errors"
+#~ msgstr "Проверка ошибок"
+
+#~ msgid "Dense cloud"
+#~ msgstr "Плотное облако"
+
+#~ msgid "DEM"
+#~ msgstr "Карта высот"
+
+#~ msgid "Orthomosaic"
+#~ msgstr "Ортофотоплан"
+
+#~ msgid "Tiled model (TLS)"
+#~ msgstr "Тайловая модель (TLS)"
+
+#~ msgid "Export orthomosaic"
+#~ msgstr "Экспорт ортофотоплана"
+
+#~ msgid "Export DEM"
+#~ msgstr "Экспорт карты высот"
+
+#~ msgid "Export tiled model (TLS)"
+#~ msgstr "Экспорт тайловой модели (TLS)"
+
+#~ msgid "Export report"
+#~ msgstr "Экспорт отчета"
+
+#~ msgid "Start"
+#~ msgstr "Старт"
+
+#~ msgid "Region"
+#~ msgstr "Регион"
+
+#~ msgid "Easting\t\t"
+#~ msgstr "Восточное ук.\t\t"
+
+#~ msgid "Northing\t\t"
+#~ msgstr "Северное ук.\t\t"
+
+#~ msgid "Allowed errors"
+#~ msgstr "Допустимые ошибки"
+
+#~ msgid "Spatial, m\t\t"
+#~ msgstr "Пространственная СКО, м\t"
+
+#~ msgid "Pixel, pix\t\t"
+#~ msgstr "Пиксельная, пикс.\t\t"
+
+#~ msgid "Resolutions"
+#~ msgstr "Разрешения"
+
+#~ msgid "DEM, m\t\t"
+#~ msgstr "DEM, м\t\t"
+
+#~ msgid "X"
+#~ msgstr "X"
+
+#~ msgid "Orthomosaic, m\t"
+#~ msgstr "Ортофотоплан, м\t"
+
+#~ msgid "Additional info"
+#~ msgstr "Дополнительная информация"
+
+#~ msgid "Additional info string"
+#~ msgstr "Строка информации"
+
+#~ msgid "Export example:\t"
+#~ msgstr "Пример экспорта:\t"
+
+#~ msgid "007_Yefremov_155_ortho_MSK71.1-301-440.tif"
+#~ msgstr "007_Yefremov_155_ortho_MSK71.1-301-440.tif"
+
+#~ msgid "Apply"
+#~ msgstr "Применить"
+
+#~ msgid "Tula GNSS"
+#~ msgstr "Тула (точные центра)"
+
+#~ msgid "Tula NAV"
+#~ msgstr "Тула (навигационные центра)"

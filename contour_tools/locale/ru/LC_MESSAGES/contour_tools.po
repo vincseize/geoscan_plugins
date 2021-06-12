@@ -1,0 +1,114 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2019-01-31 21:19+0300\n"
+"PO-Revision-Date: 2019-01-31 21:19+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: contour_tools.py:20
+msgid "Offset (sm)"
+msgstr "Сдвиг вбок (см)"
+
+#: contour_tools.py:23
+msgid "Apply offset"
+msgstr "Применить"
+
+#: contour_tools.py:30
+msgid "Move up (sm)"
+msgstr "Сдвиг вверх (см)"
+
+#: contour_tools.py:33
+msgid "Apply height"
+msgstr "Применить"
+
+#: contour_tools.py:39
+msgid "Duplicate selected"
+msgstr "Дублировать выделенные"
+
+#: contour_tools.py:55 contour_tools.py:65 project_contour.py:160
+msgid "Error"
+msgstr "Ошибка"
+
+#: contour_tools.py:55
+msgid "Delta h is not a number"
+msgstr "Сдвиг по высоте не число"
+
+#: contour_tools.py:65
+msgid "Delta offset is not a number"
+msgstr "Сдвиг по ширине не число"
+
+#: contour_tools.py:80 contour_tools.py:82
+msgid "Contour tools"
+msgstr "Контура"
+
+#: project_contour.py:63
+msgid "Contour not selected"
+msgstr "Контур не выбран"
+
+#: project_contour.py:63
+msgid "Please select contour"
+msgstr "Выберите контур"
+
+#: project_contour.py:66
+msgid "No height for contour"
+msgstr "Нет высоты для контура"
+
+#: project_contour.py:66
+msgid "Please add heights to selected contour"
+msgstr "Определите высоты для контура"
+
+#: project_contour.py:82
+msgid "Creating masks from contour"
+msgstr "Создаем маски из контура"
+
+#: project_contour.py:96
+msgid "Hiding all objects"
+msgstr "Прячем объекты"
+
+#: project_contour.py:100
+msgid "Fraction of coarsen: "
+msgstr "Во сколько раз сжимать: "
+
+#: project_contour.py:112
+msgid "coarsen by: 6"
+msgstr "сжимаем в: 6"
+
+#: project_contour.py:118
+msgid "Apply coarsen"
+msgstr "Применить"
+
+#: project_contour.py:128
+msgid "coarsen by: "
+msgstr "сжимаем в: "
+
+#: project_contour.py:160
+msgid "Please open document which you want to work with!"
+msgstr "Откройте документ, с которым нужно работать"
+
+#~ msgid "Plugins"
+#~ msgstr "Плагины"
+
+#~ msgid "Start"
+#~ msgstr "Начать"
+
+#~ msgid "Hide contour"
+#~ msgstr "Спрятать под контуром"
+
+#~ msgid "Make masks from current contour"
+#~ msgstr "Сделать маски из контура"
+
+#~ msgid "coarsen by: 5"
+#~ msgstr "сжимаем в: 5"
+
+#~ msgid "Rewrite backup?"
+#~ msgstr "Переписать бэкап?"

@@ -1,0 +1,14 @@
+{
+    "gdal": {
+        "name": "GDAL-3.1.4-cp38-cp38-win_amd64.whl",
+        "url": "https://github.com/geoscan/geoscan_plugins/releases/latest/download/GDAL-3.1.4-cp38-cp38-win_amd64.whl"
+    },
+    "numpy": {
+        "name": "numpy-1.20.3+mkl-cp38-cp38-win_amd64.whl",
+        "url": "https://github.com/geoscan/geoscan_plugins/releases/latest/download/numpy-1.20.3+mkl-cp38-cp38-win_amd64.whl"
+    },
+    "shapely": {
+        "name": "Shapely-1.7.1-cp38-cp38-win_amd64.whl",
+        "url": "https://github.com/geoscan/geoscan_plugins/releases/latest/download/Shapely-1.7.1-cp38-cp38-win_amd64.whl"
+    }
+}

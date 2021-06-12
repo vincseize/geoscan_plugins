@@ -1,0 +1,91 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2019-01-31 21:32+0300\n"
+"PO-Revision-Date: 2019-01-31 21:32+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: plugins_configurator.py:22
+msgid "akp_generator"
+msgstr ""
+
+#: plugins_configurator.py:23
+msgid "cadaster"
+msgstr ""
+
+#: plugins_configurator.py:24
+msgid "camera_cloner"
+msgstr ""
+
+#: plugins_configurator.py:25
+msgid "camera_mover"
+msgstr ""
+
+#: plugins_configurator.py:26
+msgid "chunk_region_setter"
+msgstr ""
+
+#: plugins_configurator.py:27
+msgid "class_cutter"
+msgstr ""
+
+#: plugins_configurator.py:28
+msgid "cloud_subsample"
+msgstr ""
+
+#: plugins_configurator.py:29
+msgid "contour_cutter"
+msgstr ""
+
+#: plugins_configurator.py:30
+msgid "contour_tools"
+msgstr ""
+
+#: plugins_configurator.py:31
+msgid "fast_layout"
+msgstr ""
+
+#: plugins_configurator.py:32
+msgid "model_builder"
+msgstr ""
+
+#: plugins_configurator.py:33
+msgid "powerlines"
+msgstr ""
+
+#: plugins_configurator.py:34
+msgid "srtm_downloader"
+msgstr ""
+
+#: plugins_configurator.py:35
+msgid "tensorbox"
+msgstr ""
+
+#: plugins_configurator.py:36
+msgid "tv_stitch"
+msgstr ""
+
+#: plugins_configurator.py:55
+msgid "Plugin name;Load;"
+msgstr ""
+
+#: plugins_configurator.py:72
+msgid "Save changes"
+msgstr ""
+
+#: plugins_configurator.py:90 plugins_configurator.py:99
+msgid "Plugins configurator"
+msgstr ""
+
+#: plugins_configurator.py:90
+msgid "You need to re-run PhotoScan"
+msgstr ""

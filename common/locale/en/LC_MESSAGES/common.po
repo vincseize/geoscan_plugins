@@ -1,0 +1,74 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2017-02-22 14:29+0300\n"
+"PO-Revision-Date: 2017-02-22 14:29+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ../../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: common\n"
+"X-Poedit-SearchPath-1: class_cutter.py\n"
+"X-Poedit-SearchPath-2: contour_cutter.py\n"
+"X-Poedit-SearchPath-3: fast_layout.py\n"
+"X-Poedit-SearchPath-4: fastLayout.py\n"
+"X-Poedit-SearchPath-5: marker_finder.py\n"
+"X-Poedit-SearchPath-6: model_builder.py\n"
+"X-Poedit-SearchPath-7: powerlines.py\n"
+"X-Poedit-SearchPath-8: show_all.py\n"
+"X-Poedit-SearchPath-9: srtm_downloader.py\n"
+"X-Poedit-SearchPath-10: tv_stitch.py\n"
+
+#: common/utils/colors.py:9 common/utils/colors.py:16
+msgid "Color error"
+msgstr ""
+
+#: common/utils/colors.py:9 common/utils/colors.py:16
+msgid "Not valid color: "
+msgstr ""
+
+#: common/utils/helpers.py:30
+msgid "Error"
+msgstr ""
+
+#: common/utils/helpers.py:30
+msgid "Please open document which you want to work with!"
+msgstr ""
+
+#: common/utils/helpers.py:49
+msgid "No camera selected"
+msgstr ""
+
+#: common/utils/helpers.py:49
+msgid "Please select camera you want to work with"
+msgstr ""
+
+#: common/utils/initialization.py:130
+msgid "Error importing"
+msgstr ""
+
+#: common/utils/initialization.py:130
+msgid "Error importing {}. Try to install site-packages?"
+msgstr ""
+
+#: common/utils/initialization.py:134
+msgid "Successfully installed"
+msgstr ""
+
+#: common/utils/initialization.py:134
+msgid "You need to re-run photoscan"
+msgstr ""
+
+#: show_all.py:180
+msgid "Plugins"
+msgstr ""
+
+#: show_all.py:180
+msgid "Open log"
+msgstr ""

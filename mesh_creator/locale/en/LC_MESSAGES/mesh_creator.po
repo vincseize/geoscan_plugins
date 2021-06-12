@@ -1,0 +1,252 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2019-06-04 12:23+0300\n"
+"PO-Revision-Date: 2019-06-04 12:24+0300\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"X-Generator: Poedit 2.2.1\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
+
+#: ..\..\start.py:32
+msgid ""
+"The installed version of Agisoft Metashape\n"
+"may not be fully compatible with the 3D Tools module.\n"
+"Please update software to version 1.5.2."
+msgstr ""
+
+#: ..\..\start.py:32 ..\..\start.py:45 ..\MeshCreator.py:39
+#: ..\MeshCreator.py:52 ..\MeshCreator.py:79 ..\MeshCreator.py:132
+#: ..\MeshCreator.py:140 ..\MeshCreator.py:232 ..\startapp\initialization.py:82
+msgid "Info"
+msgstr ""
+
+#: ..\..\start.py:45
+msgid ""
+"The 3D Tools module is not compatible\n"
+"with the installed version of Agiosoft Photoscan.\n"
+"Please update the software\n"
+"to Agisoft Metashape version 1.5.2."
+msgstr ""
+
+#: ..\MeshCreator.py:39
+msgid "This function will be in future."
+msgstr ""
+
+#: ..\MeshCreator.py:43 ..\MeshCreator.py:56 ..\MeshCreator.py:61
+#: ..\MeshCreator.py:68 ..\MeshCreator.py:83 ..\MeshCreator.py:91
+#: ..\MeshCreator.py:101 ..\MeshCreator.py:108 ..\MeshCreator.py:113
+#: ..\MeshCreator.py:120 ..\MeshCreator.py:127 ..\MeshCreator.py:136
+#: ..\MeshCreator.py:172 ..\MeshCreator.py:186 ..\MeshCreator.py:196
+#: ..\build_parapet.py:112 ..\build_parapet.py:125 ..\build_parapet.py:137
+#: ..\build_roof.py:122 ..\build_roof.py:147 ..\build_roof.py:160
+#: ..\build_roof.py:207
+msgid "Error"
+msgstr ""
+
+#: ..\MeshCreator.py:43 ..\MeshCreator.py:68 ..\MeshCreator.py:101
+#: ..\MeshCreator.py:120 ..\MeshCreator.py:136 ..\MeshCreator.py:172
+#: ..\MeshCreator.py:186
+msgid "Please, open project."
+msgstr ""
+
+#: ..\MeshCreator.py:52 ..\MeshCreator.py:79 ..\MeshCreator.py:232
+msgid "Please, enter correct values."
+msgstr ""
+
+#: ..\MeshCreator.py:56 ..\MeshCreator.py:83 ..\MeshCreator.py:108
+#: ..\MeshCreator.py:127 ..\MeshCreator.py:196
+msgid "Shape was not selected."
+msgstr ""
+
+#: ..\MeshCreator.py:61 ..\MeshCreator.py:91 ..\MeshCreator.py:113
+msgid "Too much shapes selected. Maximum 1 shape."
+msgstr ""
+
+#: ..\MeshCreator.py:132
+msgid "Too much shapes selected."
+msgstr ""
+
+#: ..\MeshCreator.py:140
+msgid ""
+"Unable to edit 3D model with texture.\n"
+"Please remove texture to continue editing 3D model."
+msgstr ""
+
+#: ..\MeshCreator.py:204 ..\MeshCreator.py:214 ..\build_parapet.py:62
+#: ..\build_parapet.py:80 ..\build_plane.py:57 ..\build_roof.py:99
+#: ..\build_roof.py:114 ..\build_roof.py:273 ..\build_roof.py:288
+msgid "Cannot define shape"
+msgstr ""
+
+#: ..\MeshCreator.py:204 ..\MeshCreator.py:219 ..\build_parapet.py:62
+#: ..\build_parapet.py:84 ..\build_parapet.py:133 ..\build_plane.py:57
+#: ..\build_plane.py:76 ..\build_roof.py:99 ..\build_roof.py:118
+#: ..\build_roof.py:203 ..\build_roof.py:292
+msgid ""
+"Please, sent to us .log file located in:\n"
+"{}"
+msgstr ""
+
+#: ..\MeshCreator.py:214 ..\build_parapet.py:80 ..\build_roof.py:114
+#: ..\build_roof.py:288
+msgid ""
+"Please, check all shape's vertices,\n"
+"some vertices are not show."
+msgstr ""
+
+#: ..\MeshCreator.py:218 ..\build_plane.py:76 ..\build_roof.py:118
+#: ..\build_roof.py:292
+msgid "Cannot define shape's vertices"
+msgstr ""
+
+#: ..\MeshCreator.py:240
+msgid "Warning"
+msgstr ""
+
+#: ..\MeshCreator.py:241
+msgid ""
+"It's impossible to detect the dense cloud under the point.\n"
+"Please enter the building height manually"
+msgstr ""
+
+#: ..\MeshCreator.py:257
+msgid "Empty chunk!"
+msgstr ""
+
+#: ..\MeshCreator.py:261 ..\MeshCreator.py:262
+#: ..\startapp\initialization.py:156
+msgid "3D Tools"
+msgstr ""
+
+#: ..\build_parapet.py:84 ..\build_parapet.py:133 ..\build_roof.py:203
+msgid "Cannot define shapes's vertices"
+msgstr ""
+
+#: ..\build_parapet.py:112 ..\build_roof.py:147
+msgid "The buffer distance is more than distance between polygon sides."
+msgstr ""
+
+#: ..\build_parapet.py:125 ..\build_roof.py:160
+msgid ""
+"Incorrect topology.\n"
+"Please remove intersecting vertices."
+msgstr ""
+
+#: ..\build_parapet.py:137 ..\build_roof.py:207
+msgid ""
+"Cannot create inner buffer polygon.\n"
+"The buffer distance is more than distance between polygon sides."
+msgstr ""
+
+#: ..\build_roof.py:122
+msgid "Shape must have 3 or more vertices."
+msgstr ""
+
+#: ..\build_roof.py:273
+msgid ""
+"Please, sent to us .log file in the path:\n"
+"{}"
+msgstr ""
+
+#: ..\design.py:161
+msgid "Support"
+msgstr ""
+
+#: ..\design.py:179
+msgid "Wall"
+msgstr ""
+
+#: ..\design.py:180
+msgid "Roof"
+msgstr ""
+
+#: ..\design.py:181
+msgid "Inner buffer polygon"
+msgstr ""
+
+#: ..\design.py:183
+msgid "Height"
+msgstr ""
+
+#: ..\design.py:184 ..\design.py:191 ..\design.py:193 ..\design.py:195
+msgid "(m)"
+msgstr ""
+
+#: ..\design.py:185
+msgid "Direction"
+msgstr ""
+
+#: ..\design.py:186
+msgid "Down"
+msgstr ""
+
+#: ..\design.py:187
+msgid "Up"
+msgstr ""
+
+#: ..\design.py:188
+msgid "Plane roof"
+msgstr ""
+
+#: ..\design.py:189
+msgid "Roof with parapet:"
+msgstr ""
+
+#: ..\design.py:190
+msgid "Inside indent"
+msgstr ""
+
+#: ..\design.py:192
+msgid "Down indent"
+msgstr ""
+
+#: ..\design.py:194
+msgid "Buffer distance"
+msgstr ""
+
+#: ..\startapp\initialization.py:78
+msgid "Need to update site packages."
+msgstr ""
+
+#: ..\startapp\initialization.py:79
+msgid "Please close other Metashape instances or click Cancel!"
+msgstr ""
+
+#: ..\startapp\initialization.py:82
+msgid ""
+"3D tools was not installed.\n"
+"Need to update from previous step.\n"
+"Please restart Metashape."
+msgstr ""
+
+#: ..\startapp\initialization.py:88
+msgid "Installing site-packages"
+msgstr ""
+
+#: ..\startapp\initialization.py:123
+msgid "Log file"
+msgstr ""
+
+#: ..\startapp\initialization.py:123
+msgid "Log_file"
+msgstr ""
+
+#: ..\startapp\initialization.py:123
+msgid ""
+"Your .log file:\n"
+"{}"
+msgstr ""
+
+#: ..\startapp\initialization.py:123 ..\startapp\initialization.py:156
+msgid "Plugins"
+msgstr ""

@@ -1,0 +1,5 @@
+scipy==1.6.0
+GDAL==3.1.4
+Shapely==1.7.1
+numpy==1.20.3+mkl
+PySide2

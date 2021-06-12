@@ -1,0 +1,83 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2021-02-02 18:31+0300\n"
+"PO-Revision-Date: 2021-02-02 18:32+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: CoordinateUI.py:22
+msgid "Error!"
+msgstr "Ошибка!"
+
+#: CoordinateUI.py:22
+msgid "You must enter valid value to all fields"
+msgstr "Необходимо ввести допустимое значение для всех полей"
+
+#: chunk_region_setter.py:31
+msgid "Southwest point:"
+msgstr "Юго-Западная граница:"
+
+#: chunk_region_setter.py:34
+msgid "Northeast point:"
+msgstr "Северо-Восточная граница:"
+
+#: chunk_region_setter.py:38
+msgid "Add coordinates from selected contour"
+msgstr "Добавить координаты выбранного контура"
+
+#: chunk_region_setter.py:42
+msgid "Buffer (m):"
+msgstr "Буферная зона (м):"
+
+#: chunk_region_setter.py:47
+msgid "Set region"
+msgstr "Задать регион"
+
+#~ msgid "Process by coordinates"
+#~ msgstr "Задать регион по координатам"
+
+#~ msgid "Process by contour"
+#~ msgstr "Задать регион по полигону"
+
+#~ msgid "Plugins"
+#~ msgstr "Плагины"
+
+#~ msgid "Chunk"
+#~ msgstr "Блок"
+
+#~ msgid "Start X: "
+#~ msgstr "Начальный Х: "
+
+#~ msgid "Start Y: "
+#~ msgstr "Начальный Y: "
+
+#~ msgid "Step X: "
+#~ msgstr "Шаг по Х: "
+
+#~ msgid "Step Y: "
+#~ msgstr "Шаг по Y: "
+
+#~ msgid "Overlap X: "
+#~ msgstr "Перекрытие по X: "
+
+#~ msgid "Overlap Y: "
+#~ msgstr "Перекрытие по Y: "
+
+#~ msgid "Split chunks"
+#~ msgstr "Разделить на чанки"
+
+#~ msgid "Cameras"
+#~ msgstr "Камеры"
+
+#~ msgid "Split cameras"
+#~ msgstr "Разделить камеры"

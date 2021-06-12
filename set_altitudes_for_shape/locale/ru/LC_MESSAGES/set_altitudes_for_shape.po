@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2019-11-15 19:52+0300\n"
+"PO-Revision-Date: 2019-11-15 19:52+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: set_altitudes_for_shape.py:34 set_altitudes_for_shape.py:46
+msgid ""
+"Altitude has been set! Update shape layer by double-click on layer in "
+"Workspace."
+msgstr ""
+"Высота задана! Теперь сделайте двойной клик по слою в панели \"Проект\", "
+"чтобы обновить фигуру."
+
+#: set_altitudes_for_shape.py:74
+msgid ""
+"Outliers have been removed! Update shape layer by double-click on layer in "
+"Workspace."
+msgstr ""
+"Выбросы исправлены! Теперь сделайте двойной клик по слою в панели \"Проект"
+"\", чтобы обновить фигуру."
+
+#: set_altitudes_for_shape_ui.py:47
+msgid "Set altitude for shape"
+msgstr "Задать высоту выбранной фигуре"
+
+#: set_altitudes_for_shape_ui.py:48
+msgid "Altitude (m):"
+msgstr "Высота (м):"
+
+#: set_altitudes_for_shape_ui.py:49
+msgid "Set selected altitude for shape vertices"
+msgstr "Задать высоту узлам фигуры"
+
+#: set_altitudes_for_shape_ui.py:50
+msgid "Set median altitude for shape vertices"
+msgstr "Задать медианную высоту узлам фигуры"
+
+#: set_altitudes_for_shape_ui.py:51
+msgid "Remove the outliers"
+msgstr "Убрать выбросы"
+
+#~ msgid ""
+#~ "Altitude = {} has been set! Update shape layer by double-click on layer "
+#~ "in Workspace."
+#~ msgstr ""
+#~ "Высота = {} задана! Теперь сделайте двойной клик по слою в панели \"Проект"
+#~ "\", чтобы обновить фигуру."
+
+#~ msgid ""
+#~ "There is one bug in Agisoft Metashape 1.5.5. After clicking on any of the "
+#~ "buttons, altitudes of shape vertices will change. But the shape "
+#~ "visualization will remain the same in Metashape app. To update the shape "
+#~ "visualisation you need, for example, to make right click on the shape and "
+#~ "check its property. After that, you will see the shape with new altitudes."
+#~ msgstr ""
+#~ "В версии Agisoft Metashape 1.5.5 есть баг. После нажатия одной из кнопок "
+#~ "высоты узлов фигуры изменятся. Однако визуализация фигуры в окне Agisoft "
+#~ "Metashape останется прежней. Для того, чтобы увидеть фигуру с "
+#~ "обновленными высотами, нужно, к примеру, правым кликом мыши нажать по "
+#~ "фигуре и просмотреть ее \"Свойства\". После этого фигура отобразится в "
+#~ "проекте с обновленными высотами."
+
+#~ msgid "Export/Import model by marker"
+#~ msgstr "Экспорт/Импорт модели по маркеру"
+
+#~ msgid "Markers"
+#~ msgstr "Маркеры"
+
+#~ msgid "Models"
+#~ msgstr "Модели"
+
+#~ msgid "Export"
+#~ msgstr "Экспорт"
+
+#~ msgid "Browse"
+#~ msgstr "Обзор"
+
+#~ msgid "Import"
+#~ msgstr "Импорт"
+
+#~ msgid "Create model to export"
+#~ msgstr "Экспорт модели"
+
+#~ msgid "Choose model to import"
+#~ msgstr "Выбор модели для импорта"
+
+#~ msgid "Select Directory"
+#~ msgstr "Выберте директорию"
+
+#~ msgid "Please, select the correct path"
+#~ msgstr "Пожалуйста, выберите корректный путь"
+
+#~ msgid "Abort"
+#~ msgstr "Прервано"
+
+#~ msgid "Aborted by user"
+#~ msgstr "Прервано пользователем"
+
+#~ msgid "Can't find this file: "
+#~ msgstr "Невозможно найти файл: "
+
+#~ msgid "Copy failed"
+#~ msgstr "Ошибка копирования"
+
+#~ msgid "Can't copy this file: "
+#~ msgstr "Невозможно скопировать файл: "
+
+#~ msgid "Plugins"
+#~ msgstr "Плагины"
+
+#~ msgid "Cameras"
+#~ msgstr "Камеры"
+
+#~ msgid "Clone cameras"
+#~ msgstr "Выгрузить фото"
+
+#~ msgid "Please update your destination path"
+#~ msgstr "Пожалуйста,обновите конечный путь"

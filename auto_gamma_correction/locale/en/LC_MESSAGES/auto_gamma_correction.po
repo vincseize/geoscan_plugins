@@ -1,0 +1,39 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2019-09-10 12:20+0300\n"
+"PO-Revision-Date: 2019-09-10 12:20+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: auto_gamma_correction.py:54
+msgid "There are no selected images"
+msgstr ""
+
+#: auto_gamma_correction.py:77
+msgid "Install ImageMagick for further use of the plugin"
+msgstr ""
+
+#: auto_gamma_correction_gui.py:60
+msgid "Auto-gamma correction"
+msgstr ""
+
+#: auto_gamma_correction_gui.py:61
+msgid "Apply auto gamma correction?"
+msgstr ""
+
+#: auto_gamma_correction_gui.py:62
+msgid "Only for selected images"
+msgstr ""
+
+#: auto_gamma_correction_gui.py:63
+msgid "Change image paths in Metashape project"
+msgstr ""
