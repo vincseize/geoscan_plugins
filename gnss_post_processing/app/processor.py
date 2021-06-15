@@ -414,7 +414,7 @@ class GnssProcessor(QtWidgets.QDialog):
             if type(error) in [NoEvents, NoEpochs]:
                 custom_user_error(error, write_to_status=True, status_label=self.ui.status_Label)
             if not type(error) in [InterruptedError, InputDataError]:
-                if config.get('Paths', 'report_about_errors') == 'True':
+                if config.get('Options', 'report_about_errors') == 'True':
                     error_handler(self, error=traceback.format_exc())
                 else:
                     traceback.print_exc()
@@ -471,7 +471,7 @@ class GnssProcessor(QtWidgets.QDialog):
                 self.ui.export_pushButton.setEnabled(False)
                 self.ui.import_pushButton.setEnabled(False)
             else:
-                if config.get('Paths', 'report_about_errors') == 'True':
+                if config.get('Options', 'report_about_errors') == 'True':
                     error_handler(self, error=traceback.format_exc())
                 else:
                     traceback.print_exc()
