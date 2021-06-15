@@ -25,12 +25,12 @@ class PluginsSettings(QtWidgets.QDialog):
 
         self.auto_update = QtWidgets.QCheckBox()
         self.auto_update.setText(_("Get auto updates for Plugins"))
-        self.auto_update.setChecked(config.get('Paths', 'auto_update') == 'True')
+        self.auto_update.setChecked(config.get('Options', 'auto_update') == 'True')
         self.verticalLayout.addWidget(self.auto_update)
 
         self.error_logs = QtWidgets.QCheckBox()
         self.error_logs.setText(_("Send error logs to developers"))
-        self.error_logs.setChecked(config.get('Paths', 'report_about_errors') == 'True')
+        self.error_logs.setChecked(config.get('Options', 'report_about_errors') == 'True')
         self.verticalLayout.addWidget(self.error_logs)
 
         self.verticalSpacer = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
@@ -49,14 +49,14 @@ class PluginsSettings(QtWidgets.QDialog):
 
     def ok_process(self):
         if self.auto_update.isChecked():
-            config.set('Paths', 'auto_update', 'True')
+            config.set('Options', 'auto_update', 'True')
         else:
-            config.set('Paths', 'auto_update', 'False')
+            config.set('Options', 'auto_update', 'False')
 
         if self.error_logs.isChecked():
-            config.set('Paths', 'report_about_errors', 'True')
+            config.set('Options', 'report_about_errors', 'True')
         else:
-            config.set('Paths', 'report_about_errors', 'False')
+            config.set('Options', 'report_about_errors', 'False')
 
         config_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'config.ini')
         with open(config_path, mode='wt', encoding='utf-8') as file:

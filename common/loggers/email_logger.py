@@ -28,7 +28,7 @@ from common.startup.initialization import config
 from common.loggers.logger_params import init, developers
 
 
-REPORT_FLAG = config.get('Paths', 'report_about_errors') == 'True'
+REPORT_FLAG = config.get('Options', 'report_about_errors') == 'True'
 
 
 class LoggerError(Exception):
