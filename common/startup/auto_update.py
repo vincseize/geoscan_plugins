@@ -25,8 +25,10 @@ import os
 import shutil
 import subprocess
 import tempfile
+import textwrap
 import traceback
 import zipfile
+from configparser import ConfigParser
 from shutil import copy2
 from urllib.parse import urlparse
 import sys
@@ -34,7 +36,8 @@ from functools import reduce
 
 from PySide2.QtWidgets import *
 
-from common.loggers.email_logger import send_geoscan_plugins_error_to_devs
+import Metashape
+from common.loggers.email_logger import send_geoscan_plugins_error_to_devs, LoggerValues
 from common.utils.ui import ProgressBar
 from common.startup.initialization import config, ps, update_sp_path
 from common.startup.requirements_utils import PLUGINS_DIR, create_requirements, download_prebuilt_package, \
@@ -66,7 +69,6 @@ def copytree_scripts(src, dst, ignored_patterns: (None, set) = None):
     progress = ProgressBar(_("Updating scripts"))
     cnt = 0
     for source, destination in files_list:
-        # print(source, destination)
         try:
             copy2(source, destination)
         except PermissionError:
@@ -75,7 +77,37 @@ def copytree_scripts(src, dst, ignored_patterns: (None, set) = None):
         progress.update(cnt / len(files_list) * 100)
 
 
+def update_build_from_git(repo, latest_version):
+    try:
+        import requests
+    except ImportError:
+        import subprocess
+        default_sp_path = config.get('Paths', 'sp_path')
+        python = config.get('Paths', 'python')
+        subprocess.run([python, '-m', 'pip', 'install', '--upgrade', "--target={}".format(default_sp_path), 'requests'])
+        import requests
+
+    source_code_url = repo[:-4] + "/archive/refs/tags/build{}.zip".format(latest_version)
+    source_code_zip = download_file(url=source_code_url, name="build{}.zip".format(latest_version))
+    with zipfile.ZipFile(source_code_zip, 'r') as source:
+        main_dir = source.infolist()[0]
+        source.extractall(path=os.path.dirname(source_code_zip))
+
+    source_dir = os.path.join(os.path.dirname(source_code_zip), main_dir.filename)
+    target_dir = os.path.join(config.get('Paths', 'local_app_data'), 'scripts')
+    if not os.path.exists(target_dir):
+        os.makedirs(target_dir)
+    copytree_scripts(source_dir, target_dir, ignored_patterns={'.git'})
+
+    try:
+        os.remove(source_code_zip)
+        shutil.rmtree(source_dir)
+    except PermissionError:
+        pass
+
+
 def update_plugins_from_git(repo, update_submodules=False):
+    """Not used in geoscan plugins"""
     try:
         import git
     except ImportError:
@@ -177,7 +209,7 @@ def show_warning_yes_cancel(title, message):
 
 def update_plugins():
     update_sp_path()
-    if config.get('Paths', 'auto_update') == 'True':
+    if config.get('Options', 'auto_update') == 'True':
         try:
             remote_version = get_remote_version()
             current_version = get_local_version()
@@ -192,21 +224,53 @@ def update_plugins():
 
                 artifacts = config.get('Paths', 'artifacts')
                 if artifacts.endswith('.git'):
-                    update_plugins_from_git(repo=artifacts)
+                    update_build_from_git(repo=artifacts, latest_version=remote_version)
                 else:
                     dst = os.path.join(config.get('Paths', 'local_app_data'), 'scripts')
                     copytree_scripts(artifacts, dst, ignored_patterns={'.git'})
 
                 check_and_install_sitepackages(online=True)
                 update_resources()
+                update_config()
+                if remote_version in [568]:  # temporary
+                    Metashape.app.messageBox(textwrap.fill(_('Please, re-run Agisoft Metashape to apply updates'), 65))
 
             if not is_requirements():
                 check_and_install_sitepackages(online=True)
                 update_resources()
+
         except Exception:
             print("Auto update is not available :(")
+            sec, opt = 'Options', 'report_about_errors'
+            if config.has_option(sec, opt) and config.get(sec, opt) == 'True':
+                values = LoggerValues(input={}, plugin_name='main')
+                send_geoscan_plugins_error_to_devs(error=traceback.format_exc(), values=values)
 
     check_and_install_sitepackages(online=False)
+
+
+def update_config():
+    new_config = ConfigParser()
+    new_config_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'config.ini')
+    new_config.read(new_config_path, encoding='utf-8')
+
+    blocked_sections, config_blocked = ['Options', 'Plugins'], dict()
+    for section in blocked_sections:
+        if not config.has_section(section):
+            continue
+        for option, status in config.items(section):
+            if section not in config_blocked:
+                config_blocked[section] = {option: status}
+            else:
+                config_blocked[section][option] = status
+
+    for section, data in config_blocked.items():
+        for option, status in data.items():
+            if config.has_option(section, option):
+                new_config.set(section, option, status)
+
+    with open(new_config_path, mode='wt', encoding='utf-8') as file:
+        new_config.write(file)
 
 
 def check_and_install_sitepackages(online: bool):

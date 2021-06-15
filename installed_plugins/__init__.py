@@ -16,11 +16,9 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 """
 
-from configparser import NoOptionError
-
-from common.startup.initialization import config
 import glob
 import os
+from configparser import ConfigParser
 
 
 class PluginImportError(Exception):
@@ -31,6 +29,9 @@ plugins_init = os.path.join(os.path.dirname(__file__), "plugins.txt")
 plugins_in_dir = set([os.path.splitext(os.path.basename(p))[0] for p in glob.glob(os.path.dirname(__file__)+"/*.py")])
 
 activated_plugins = list()
+config_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config.ini')
+config = ConfigParser()
+config.read(config_path, encoding='utf-8')
 
 if os.path.exists(plugins_init):
     with open(plugins_init, 'r') as f:
