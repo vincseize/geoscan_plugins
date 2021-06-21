@@ -84,14 +84,14 @@ def build_error_message(values: LoggerValues, error_type, error_text):
     subject = "{}: {}".format(values.plugin_name, error_type)
     user_ann = "" if values.user_annotation is None else "User annotation:\n\n{}\n\n".format(values.user_annotation)
 
+    reply = "Reply email: {}\n\n".format(values.reply_email)
     text = "Date: {}\n\n" \
            "Plugin name: {}\n" \
            "Plugin version: {}\n" \
            "Plugins build: {}\n\n" \
            "Input values:\n\n{}\n\n" \
            "{}" \
-           "Error:\n\n{}".format(values.reply_email if values.reply_email else '',
-                                 time,
+           "Error:\n\n{}".format(time,
                                  values.plugin_name,
                                  values.plugin_version,
                                  values.plugins_build,
@@ -99,7 +99,7 @@ def build_error_message(values: LoggerValues, error_type, error_text):
                                  user_ann,
                                  error_text)
 
-    return subject, text
+    return subject, (reply if values.reply_email else '') + text
 
 
 def send_email(server_params, user_to, subject, text):
