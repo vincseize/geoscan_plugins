@@ -21,8 +21,7 @@
 - **Agisoft Metashape** версии **1.7** и выше
 
 ## Лицензия
-Данное программное обеспечение имеет лицензию GNU General Public License version 3, 
-которая не накладывает ограничений на его использование. 
+Данное программное обеспечение имеет лицензию GNU General Public License version 3.
 Подробнее - в файле [LICENSE](https://github.com/geoscan/geoscan_plugins/blob/main/LICENSE).
 
 ## Установка
