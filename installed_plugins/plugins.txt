@@ -15,3 +15,4 @@ plugins_configurator
 quality_estimator
 set_altitudes_for_shape
 shape_worker
+tab_generation

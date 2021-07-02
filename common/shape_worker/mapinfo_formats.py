@@ -27,18 +27,22 @@ def fix_mapinfo_ref(ref: osr.SpatialReference):
     """
     mapinfo_ref = ref.ExportToMICoordSys()
     proj4_ref = ref.ExportToProj4()
-    if re.search(r"CoordSys Earth Projection \d+, 9999", mapinfo_ref):
+    if re.search(r"Earth Projection \d+, 9999", mapinfo_ref):
         towgs84 = re.search(r"towgs84=(.+),(.+),(.+),(.+),(.+),(.+),(.+?)($|\s)", proj4_ref)
         try:
             dx, dy, dz, rx, ry, rz, k = list(map(float, [towgs84.group(i) for i in range(1, 8)]))
         except Exception:
             return mapinfo_ref
 
-        params = re.search(r"CoordSys Earth Projection (.+)", mapinfo_ref).group(1)
-        values = [x.strip() for x in params.split(',')]
-        for i, param in zip(range(3, 10), [dx, dy, dz, -rx, -ry, -rz, -k]):
-            values[i] = str(param)
-        return "CoordSys Earth Projection " + ', '.join(values)
+        search_params = re.search(r"Earth Projection (.+)", mapinfo_ref)
+        if search_params:
+            params = search_params.group(1)
+            values = [x.strip() for x in params.split(',')]
+            for i, param in zip(range(3, 10), [dx, dy, dz, -rx, -ry, -rz, k]):
+                values[i] = str(param)
+            return "CoordSys Earth Projection " + ', '.join(values)
+        else:
+            return mapinfo_ref
 
 
 if __name__ == "__main__":
