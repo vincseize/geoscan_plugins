@@ -48,19 +48,20 @@ _После установки, в обоих случаях, при перво�
 5. [Оценка качества исходных снимков](https://github.com/geoscan/geoscan_plugins/blob/main/quality_estimator#readme)
 6. [Микшер каналов изображений](https://github.com/geoscan/geoscan_plugins/blob/main/image_channel_mixer#readme)
 7. [Построить маски по контурам](https://github.com/geoscan/geoscan_plugins/blob/main/contour_tools#readme)
+8. [Удалить дубликаты изображений](https://github.com/geoscan/geoscan_plugins/blob/main/remove_image_duplicates#readme)
 ### Блок **Фигуры**
-8. [Построить буферную зону](https://github.com/geoscan/geoscan_plugins/blob/main/buffer_by_markers#readme)
-9. [Экспортировать по фигурам](https://github.com/geoscan/geoscan_plugins/blob/main/export_by_shapes#readme)
-10. [Построить номенклатурную разграфку](https://github.com/geoscan/geoscan_plugins/blob/main/shape_worker#построить-номенклатурную-разграфку)
-11. [Задать высоту выбранной фигуре](https://github.com/geoscan/geoscan_plugins/blob/main/set_altitudes_for_shape#readme)
-12. [Построить регулярную сетку](https://github.com/geoscan/geoscan_plugins/tree/main/shape_worker#построить-регулярную-сетку)
+9. [Построить буферную зону](https://github.com/geoscan/geoscan_plugins/blob/main/buffer_by_markers#readme)
+10. [Экспортировать по фигурам](https://github.com/geoscan/geoscan_plugins/blob/main/export_by_shapes#readme)
+11. [Построить номенклатурную разграфку](https://github.com/geoscan/geoscan_plugins/blob/main/shape_worker#построить-номенклатурную-разграфку)
+12. [Задать высоту выбранной фигуре](https://github.com/geoscan/geoscan_plugins/blob/main/set_altitudes_for_shape#readme)
+13. [Построить регулярную сетку](https://github.com/geoscan/geoscan_plugins/tree/main/shape_worker#построить-регулярную-сетку)
 ### Блок **Модель**
-13. [Экспорт/Импорт модели по маркеру](https://github.com/geoscan/geoscan_plugins/blob/main/expimp_by_marker#readme)
-14. [Построить стены](https://github.com/geoscan/geoscan_plugins/blob/main/mesh_creator#readme)
+14. [Экспорт/Импорт модели по маркеру](https://github.com/geoscan/geoscan_plugins/blob/main/expimp_by_marker#readme)
+15. [Построить стены](https://github.com/geoscan/geoscan_plugins/blob/main/mesh_creator#readme)
 ### Блок **Другое**
-15. [Задать регион](https://github.com/geoscan/geoscan_plugins/blob/main/chunk_region_setter#readme)
-16. [Добавить пользовательские системы координат](https://github.com/geoscan/geoscan_plugins/blob/main/crs_uploader#readme)
-17. [Создание MapInfo TAB-файлов для ортофотопланов](https://github.com/geoscan/geoscan_plugins/blob/main/tab_meta_creator#readme)
+16. [Задать регион](https://github.com/geoscan/geoscan_plugins/blob/main/chunk_region_setter#readme)
+17. [Добавить пользовательские системы координат](https://github.com/geoscan/geoscan_plugins/blob/main/crs_uploader#readme)
+18. [Создание MapInfo TAB-файлов для ортофотопланов](https://github.com/geoscan/geoscan_plugins/blob/main/tab_meta_creator#readme)
 
 ## Автоматическое обновление
 Плагины умеют автоматически обновляться при наличии соединения с Интернетом! 
