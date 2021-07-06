@@ -24,10 +24,8 @@ import os
 import gettext
 from configparser import ConfigParser
 from PySide2.QtCore import QSettings
+
 from common.utils import loglevels
-
-
-MS_PYTHON = os.path.join(os.environ['PROGRAMFILES'], 'Agisoft', 'Metashape Pro', 'python', 'python.exe')
 
 
 ps = None
@@ -62,7 +60,12 @@ def init_config():
     if not config_parser.has_option('Paths', 'sp_path'):
         config_parser.set('Paths', 'sp_path', os.path.join(localdir, 'site-packages-py3{}'.format(sys.version_info[1])))
     if not config_parser.has_option('Paths', 'python'):
-        config_parser.set('Paths', 'python', MS_PYTHON)
+        ms_exec = sys.executable
+        python_exec = os.path.join(os.path.dirname(ms_exec), 'python', 'python.exe')
+        if not os.path.exists(python_exec):
+            ps.app.messageBox("Invalid path to python.exe")
+            return
+        config_parser.set('Paths', 'python', python_exec)
 
     check_python = re.search(r"py3(\d+)", os.path.basename(config_parser.get('Paths', 'sp_path')))
     if check_python and int(check_python.groups(1)[0]) != sys.version_info[1]:
