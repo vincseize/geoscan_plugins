@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2018-07-06 14:38+0300\n"
+"PO-Revision-Date: 2018-07-06 14:38+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.8\n"
+"X-Poedit-Basepath: ../../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: remove_image_duplicates\n"
+"X-Poedit-SearchPath-1: installed_plugins/remove_image_duplicates.py\n"
+
+#: installed_plugins/remove_image_duplicates.py:5
+msgid "Plugins"
+msgstr ""
+
+#: installed_plugins/remove_image_duplicates.py:5
+msgid "Cameras"
+msgstr ""
+
+#: installed_plugins/remove_image_duplicates.py:5
+#: remove_image_duplicates/duplicates_gui.py:12
+msgid "Remove image duplicates"
+msgstr ""
+
+#: remove_image_duplicates/duplicates_gui.py:18
+msgid "From all groups"
+msgstr ""
+
+#: remove_image_duplicates/duplicates_gui.py:19
+msgid "From group name"
+msgstr ""
+
+#: remove_image_duplicates/duplicates_gui.py:26
+msgid "Group name"
+msgstr ""
+
+#: remove_image_duplicates/duplicates_gui.py:29
+msgid "Choose action:"
+msgstr ""
+
+#: remove_image_duplicates/duplicates_gui.py:31
+msgid "Disable"
+msgstr ""
+
+#: remove_image_duplicates/duplicates_gui.py:32
+msgid "Remove"
+msgstr ""
+
+#: remove_image_duplicates/duplicates_gui.py:33
+msgid "Merge"
+msgstr ""
+
+#: remove_image_duplicates/duplicates_gui.py:36
+msgid "Execute"
+msgstr ""
+
+#: remove_image_duplicates/duplicates_gui.py:39
+msgid "Cancel"
+msgstr ""

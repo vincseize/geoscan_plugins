@@ -13,5 +13,7 @@ mesh_creator
 msk_grid_builder
 plugins_configurator
 quality_estimator
+remove_image_duplicates
 set_altitudes_for_shape
 shape_worker
+tab_generation
