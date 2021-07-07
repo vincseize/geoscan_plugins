@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2021-06-10 11:31+0300\n"
-"PO-Revision-Date: 2021-06-10 11:33+0300\n"
+"POT-Creation-Date: 2021-07-02 01:36+0300\n"
+"PO-Revision-Date: 2021-07-02 01:36+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -15,11 +15,23 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-SearchPath-0: .\n"
 
+#: app/gnss_utilities.py:45
+msgid "Save new shrinked Rover RINEX file"
+msgstr "Сохранить прореженный RINEX-файл ровера"
+
+#: app/gnss_utilities.py:50
+msgid "Shrinking Rover RINEX file..."
+msgstr "Прореживание RINEX-файла ровера..."
+
+#: app/gnss_utilities.py:68
+msgid "Finished!"
+msgstr "Завершено!"
+
 #: app/multiple_processing.py:154
 msgid "Invalid path to flights directory."
 msgstr "Некорректный путь к директории с АФС"
 
-#: app/multiple_processing.py:158 app/utils/error_handlers.py:41
+#: app/multiple_processing.py:158 app/utils/error_handlers.py:57
 msgid "Invalid path to base RINEX file."
 msgstr "Некорректный путь к RINEX-файлу базовой станции."
 
@@ -39,43 +51,47 @@ msgstr "RINEX-файлы борта"
 msgid "Geoscan telemetry"
 msgstr "Телеметрия Геоскан"
 
-#: app/multiple_processing.py:472 app/translations.py:99
+#: app/multiple_processing.py:220
+msgid "Collecting base station data..."
+msgstr "Собираем данные базовой станции..."
+
+#: app/multiple_processing.py:501 app/translations.py:101
 msgid "Search flights settings"
 msgstr "Настройки поиска"
 
-#: app/multiple_processing.py:476
+#: app/multiple_processing.py:505
 msgid "Telemetry time bounds must be within rover RINEX time bounds"
 msgstr ""
 "Временные границы телеметрии должны быть внутри временных границ RINEX-файла "
 "ровера"
 
-#: app/multiple_processing.py:479
+#: app/multiple_processing.py:508
 msgid "Telemetry time bounds must overlap rover RINEX time bounds"
 msgstr ""
 "Временные границы телеметрии должны пересекаться с временными границами "
 "RINEX-файла ровера"
 
-#: app/multiple_processing.py:487
+#: app/multiple_processing.py:516
 msgid "* Use Geoscan filenames to refine matches"
 msgstr "* Использовать специфические имена файлов для уточнения поиска"
 
-#: app/multiple_processing.py:493
+#: app/multiple_processing.py:522
 msgid "Use date"
 msgstr "Использовать дату"
 
-#: app/multiple_processing.py:496
+#: app/multiple_processing.py:525
 msgid "Use flight type"
 msgstr "Использовать тип полета"
 
-#: app/multiple_processing.py:499
+#: app/multiple_processing.py:528
 msgid "Use drone id"
 msgstr "Использовать номер борта"
 
-#: app/multiple_processing.py:502
+#: app/multiple_processing.py:531
 msgid "Use flight id"
 msgstr "Использовать номер полета"
 
-#: app/multiple_processing.py:505
+#: app/multiple_processing.py:534
 msgid ""
 "* Required part of filename (example):\n"
 "name: 2020_07_22_reg36_g201b20395_f077, where\n"
@@ -93,55 +109,59 @@ msgstr ""
 "номер борта: g201b20395\n"
 "номер полета: f077"
 
-#: app/processor.py:64
+#: app/processor.py:67
 msgid "v"
 msgstr "версия "
 
-#: app/processor.py:188
+#: app/processor.py:199
 msgid "Choose rover RINEX"
 msgstr "Выберите RINEX-файл наблюдений ровера"
 
-#: app/processor.py:207
+#: app/processor.py:218
 msgid "Choose base RINEX"
 msgstr "Выберите RINEX-файл наблюдений базовой станции"
 
-#: app/processor.py:230 app/processor.py:240
+#: app/processor.py:241 app/processor.py:251
 msgid "Choose telemetry file"
 msgstr "Выберите файл телеметрии"
 
-#: app/processor.py:288 app/utils/helpers.py:388
+#: app/processor.py:299 app/utils/helpers.py:388
 msgid "Incorrect input data"
 msgstr "Некорректные входные данные"
 
-#: app/processor.py:362
+#: app/processor.py:373
 msgid "Checking input data..."
 msgstr "Проверка входных данных..."
 
-#: app/processor.py:398
+#: app/processor.py:405
+msgid "Unexpected error during RINEX navigation files search"
+msgstr "Неожиданная ошибка в процессе поиска навигационных RINEX файлов"
+
+#: app/processor.py:420
 msgid "Processing RINEX files..."
 msgstr "Подготовка RINEX-файлов..."
 
-#: app/processor.py:402
+#: app/processor.py:424
 msgid "Checking time bounds..."
 msgstr "Проверка временных границ файлов..."
 
-#: app/processor.py:459
-msgid "Merging with telemetry..."
-msgstr "Соединение с файлами телеметрии..."
-
-#: app/processor.py:465
-msgid "Completed!"
-msgstr "Завершено!"
-
-#: app/processor.py:500
+#: app/processor.py:451
 msgid "Reading RINEX files..."
 msgstr "Чтение RINEX-файлов..."
 
-#: app/processor.py:630
+#: app/processor.py:481
+msgid "Merging with telemetry..."
+msgstr "Соединение с файлами телеметрии..."
+
+#: app/processor.py:487
+msgid "Completed!"
+msgstr "Завершено!"
+
+#: app/processor.py:651
 msgid "No cameras in chunk"
 msgstr "Нет снимков в блоке"
 
-#: app/processor.py:688
+#: app/processor.py:716
 msgid "Select directory to save files with merged telemetry and GNSS data"
 msgstr "Выберите папку для сохранения файлов с результатами расчетов"
 
@@ -169,20 +189,30 @@ msgstr "Одна база и один полет"
 msgid "Single base + Multiple rovers"
 msgstr "Одна база и несколько полетов"
 
-#: app/translations.py:35
+#: app/translations.py:31
+msgid "Settings"
+msgstr "Настройки"
+
+#: app/translations.py:32
+msgid "GNSS Utilities"
+msgstr "Инструменты"
+
+#: app/translations.py:37
 msgid "Rover"
 msgstr "Ровер (наблюдения, полученные при помощи БПЛА)"
 
-#: app/translations.py:37 app/translations.py:47 app/translations.py:74
+#: app/translations.py:39 app/translations.py:49 app/translations.py:76
+#: app/translations.py:142
 msgid "RINEX file:"
 msgstr "Файл RINEX:"
 
-#: app/translations.py:38 app/translations.py:48 app/translations.py:65
-#: app/translations.py:68 app/translations.py:75 app/translations.py:90
+#: app/translations.py:40 app/translations.py:50 app/translations.py:67
+#: app/translations.py:70 app/translations.py:77 app/translations.py:92
+#: app/translations.py:143
 msgid "Open"
 msgstr "Открыть"
 
-#: app/translations.py:40
+#: app/translations.py:42
 msgid ""
 "Use epochs which placed next to events only (experimental, processing wil be "
 "faster)"
@@ -190,63 +220,63 @@ msgstr ""
 "Ограничить используемое количество эпох\n"
 "(экспериментальная опция, ускоряет обработку)"
 
-#: app/translations.py:42
+#: app/translations.py:44 app/translations.py:141
 msgid "Epochs number per event:"
 msgstr "Количество эпох на 1 снимок:"
 
-#: app/translations.py:45 app/translations.py:73
+#: app/translations.py:47 app/translations.py:75
 msgid "Base"
 msgstr "Базовая станция"
 
-#: app/translations.py:50 app/translations.py:77
+#: app/translations.py:52 app/translations.py:79
 msgid "Coordinate System:"
 msgstr "Система координат:"
 
-#: app/translations.py:51 app/translations.py:78
+#: app/translations.py:53 app/translations.py:80
 msgid "Select CRS"
 msgstr "Выбрать"
 
-#: app/translations.py:53 app/translations.py:80
+#: app/translations.py:55 app/translations.py:82
 msgid "Base coordinates:"
 msgstr "Координаты:"
 
-#: app/translations.py:54 app/translations.py:81
+#: app/translations.py:56 app/translations.py:83
 msgid "North (Lat)"
 msgstr "Север (Шир.)"
 
-#: app/translations.py:55 app/translations.py:82
+#: app/translations.py:57 app/translations.py:84
 msgid "East (Lon)"
 msgstr "Восток (Дол.)"
 
-#: app/translations.py:56 app/translations.py:83
+#: app/translations.py:58 app/translations.py:85
 msgid "Height (m):"
 msgstr "Высота (м):"
 
-#: app/translations.py:58 app/translations.py:85
+#: app/translations.py:60 app/translations.py:87
 msgid "Antenna type:"
 msgstr "Тип антенны:"
 
-#: app/translations.py:59 app/translations.py:86
+#: app/translations.py:61 app/translations.py:88
 msgid "Antenna height (m):"
 msgstr "Высота антенны (м):"
 
-#: app/translations.py:62
+#: app/translations.py:64
 msgid "Geoscan telemetry files"
 msgstr "Телеметрия Геоскан"
 
-#: app/translations.py:64
+#: app/translations.py:66
 msgid "Telemetry file 1:"
 msgstr "Телеметрия №1:"
 
-#: app/translations.py:67
+#: app/translations.py:69
 msgid "Telemetry file 2:"
 msgstr "Телеметрия №2:"
 
-#: app/translations.py:89
+#: app/translations.py:91
 msgid "Directory with flights data*:"
 msgstr "Директория с АФС данными:"
 
-#: app/translations.py:91
+#: app/translations.py:93
 msgid ""
 "* The directory must include rover and telemetry files. Files will be "
 "searched recursively in all subdirectories"
@@ -254,65 +284,43 @@ msgstr ""
 "* Директория должна включать файлы телеметрии и RINEX-файлы бортов. \n"
 "Поиск проводится рекурсивно по всем вложенным папкам"
 
-#: app/translations.py:95
+#: app/translations.py:97
 msgid "Flights data:"
 msgstr "Полеты:"
 
-#: app/translations.py:96
+#: app/translations.py:98
 msgid "Show full file paths"
 msgstr "Показывать полные пути файлов"
 
-#: app/translations.py:97
+#: app/translations.py:99
 msgid "Uncheck all"
 msgstr "Отключить все"
 
-#: app/translations.py:98
+#: app/translations.py:100
 msgid "Find flights in selected directory"
 msgstr "Найти полеты в выбранной директории"
 
-#: app/translations.py:102
-msgid "Processing parameters"
-msgstr "Параметры обработки"
-
 #: app/translations.py:104
-msgid "GLONASS"
-msgstr "ГЛОНАСС"
-
-#: app/translations.py:105
-msgid "Elevation mask (°):"
-msgstr "Маска возвышения (°):"
-
-#: app/translations.py:107
-msgid "Excluded satellites:"
-msgstr ""
-"Исключенные\n"
-"спутники:"
-
-#: app/translations.py:108
-msgid "Example: G10, R07"
-msgstr "Пример: G10, R07"
-
-#: app/translations.py:111
 msgid "Plot track"
 msgstr "Отобразить трек полета"
 
-#: app/translations.py:112
+#: app/translations.py:105
 msgid "Plot marks"
 msgstr "Отобразить центры фотографирования"
 
-#: app/translations.py:113
+#: app/translations.py:106
 msgid "Export result to xml / txt files"
 msgstr "Эскпорт результатов в xml / txt"
 
-#: app/translations.py:114
+#: app/translations.py:107
 msgid "Import result to chunk"
 msgstr "Загрузить результат в проект"
 
-#: app/translations.py:115
+#: app/translations.py:108
 msgid "Process"
 msgstr "Обработать"
 
-#: app/translations.py:117
+#: app/translations.py:110
 msgid ""
 "<html><head/><body><p><span style=\" color:#8b8b8b;\">Powered by RTKLIB "
 "2.4.3 Demo5 b34b</span></p></body></html>"
@@ -320,27 +328,88 @@ msgstr ""
 "<html><head/><body><p><span style=\" color:#8b8b8b;\">C использованием "
 "RTKLIB 2.4.3 Demo5 b34b</span></p></body></html>"
 
-#: app/utils/error_handlers.py:16
+#: app/translations.py:116
+msgid "Processing parameters"
+msgstr "Параметры обработки"
+
+#: app/translations.py:118
+msgid "GLONASS"
+msgstr "ГЛОНАСС"
+
+#: app/translations.py:119
+msgid "Elevation mask (°):"
+msgstr "Маска возвышения (°):"
+
+#: app/translations.py:121
+msgid "Excluded satellites:"
+msgstr ""
+"Исключенные\n"
+"спутники:"
+
+#: app/translations.py:122
+msgid "Example: G10, R07"
+msgstr "Пример: G10, R07"
+
+#: app/translations.py:125
+msgid "Events accuracy in Agisoft Metashape project"
+msgstr "Точность моментов фотографирования в проекте Agisoft Metashape"
+
+#: app/translations.py:127
+msgid "Use estimated accuracies"
+msgstr "Использовать рассчитанные точности"
+
+#: app/translations.py:128
+msgid "Use predefined accuracies for each solution"
+msgstr "Использовать предустановленные точности"
+
+#: app/translations.py:130
+msgid "Q1 (fixed):"
+msgstr "Q1 (фиксированное):"
+
+#: app/translations.py:131
+msgid "Q2 (float):"
+msgstr "Q2 (плавающее):"
+
+#: app/translations.py:134
+msgid "Use event coordinates from telemetry file if no solution"
+msgstr ""
+"Использовать координаты из файла телеметрии, если нет рассчитанного решения "
+"(статус Q0)"
+
+#: app/translations.py:138 app/translations.py:144
+msgid "Shrink Rover RINEX file"
+msgstr "Проредить RINEX-файл ровера"
+
+#: app/translations.py:139
+msgid ""
+"Shrink Rover RINEX file by removing epochs that are not near the event\n"
+"To set the number of epochs that should be near the event use Epochs number "
+"per event."
+msgstr ""
+"Прореживание файла происходит за счет сохранения в файле только тех эпох,\n"
+"которые находятся рядом с событиями (моментами фотографирования)."
+
+#: app/utils/error_handlers.py:32
 msgid "Input Data Error.\n"
 msgstr "Ошибка входных данных.\n"
 
-#: app/utils/error_handlers.py:18
+#: app/utils/error_handlers.py:34
 msgid "Set path before plotting"
 msgstr "Укажите путь к RINEX-файлу перед отображением"
 
-#: app/utils/error_handlers.py:22
+#: app/utils/error_handlers.py:38
 msgid "Error during parsing Geoscan telemetry file 1. Is it correct?"
 msgstr ""
 "Проблема с распознанием структуры файла телеметрии борта Геоскан (№ 1). "
 "Указан корректный файл?"
 
-#: app/utils/error_handlers.py:23
+#: app/utils/error_handlers.py:39
 msgid "Error during parsing Geoscan telemetry file 2. Is it correct?"
 msgstr ""
 "Проблема с распознанием структуры файла телеметрии борта Геоскан (№ 2). "
 "Указан корректный файл?"
 
-#: app/utils/error_handlers.py:24
+#: app/utils/error_handlers.py:40
 msgid ""
 "First time event in telemetry file 1 is later than last observation in rover "
 "RINEX file"
@@ -348,7 +417,7 @@ msgstr ""
 "Время записи первого события в файле телеметрии (№1) позже времени "
 "последнего наблюдения в RINEX-файле ровера."
 
-#: app/utils/error_handlers.py:25
+#: app/utils/error_handlers.py:41
 msgid ""
 "First time event in telemetry file 2 is later than last observation in rover "
 "RINEX file"
@@ -356,7 +425,7 @@ msgstr ""
 "Время записи первого события в файле телеметрии (№2) позже времени "
 "последнего наблюдения в RINEX-файле ровера."
 
-#: app/utils/error_handlers.py:26
+#: app/utils/error_handlers.py:42
 msgid ""
 "Last time event in telemetry file 1 is earlier than first observation in "
 "rover RINEX file"
@@ -364,7 +433,7 @@ msgstr ""
 "Время записи последнего события в файле телеметрии (№1) раньше времени "
 "первого наблюдения в RINEX-файле ровера."
 
-#: app/utils/error_handlers.py:27
+#: app/utils/error_handlers.py:43
 msgid ""
 "Last time event in telemetry file 2 is earlier than first observation in "
 "rover RINEX file"
@@ -372,7 +441,7 @@ msgstr ""
 "Время записи последнего события в файле телеметрии (№2) раньше времени "
 "первого наблюдения в RINEX-файле ровера."
 
-#: app/utils/error_handlers.py:28
+#: app/utils/error_handlers.py:44
 msgid ""
 "Start time event in telemetry file 1 is earlier than rover start observation "
 "time.\n"
@@ -382,7 +451,7 @@ msgstr ""
 "наблюдения в RINEX-файле ровера.\n"
 "Продолжить?"
 
-#: app/utils/error_handlers.py:29
+#: app/utils/error_handlers.py:45
 msgid ""
 "Start time event in telemetry file 2 is earlier than rover start observation "
 "time.\n"
@@ -392,7 +461,7 @@ msgstr ""
 "наблюдения в RINEX-файле ровера.\n"
 "Продолжить?"
 
-#: app/utils/error_handlers.py:30
+#: app/utils/error_handlers.py:46
 msgid ""
 "Last time event in telemetry file 1 is later than rover end observation "
 "time.\n"
@@ -402,7 +471,7 @@ msgstr ""
 "наблюдения в RINEX-файле ровера.\n"
 "Продолжить?"
 
-#: app/utils/error_handlers.py:31
+#: app/utils/error_handlers.py:47
 msgid ""
 "Last time event in telemetry file 2 is later than rover end observation "
 "time.\n"
@@ -412,39 +481,49 @@ msgstr ""
 "наблюдения в RINEX-файле ровера.\n"
 "Продолжить?"
 
-#: app/utils/error_handlers.py:32
+#: app/utils/error_handlers.py:48
 msgid "Invalid path to Geoscan telemetry1 file."
 msgstr "Некорректный путь к файлу телеметрии 1."
 
-#: app/utils/error_handlers.py:33
+#: app/utils/error_handlers.py:49
 msgid "Invalid path to Geoscan telemetry2 file."
 msgstr "Некорректный путь к файлу телеметрии 2."
 
-#: app/utils/error_handlers.py:34
+#: app/utils/error_handlers.py:50
 msgid "Unknown format of Geoscan telemetry1 file."
 msgstr "Неизвестный формат файла телеметрии 1."
 
-#: app/utils/error_handlers.py:35
+#: app/utils/error_handlers.py:51
 msgid "Unknown format of Geoscan telemetry2 file."
 msgstr "Неизвестный формат файла телеметрии 2."
 
-#: app/utils/error_handlers.py:40
+#: app/utils/error_handlers.py:56
 msgid "Invalid path to rover RINEX file."
 msgstr "Некорректный путь к RINEX-файлу ровера."
 
-#: app/utils/error_handlers.py:42
+#: app/utils/error_handlers.py:58
 msgid "Unknown format to rover RINEX file."
 msgstr "Неизвестный формат RINEX-файла ровера."
 
-#: app/utils/error_handlers.py:43
+#: app/utils/error_handlers.py:59
 msgid "Unknown format to base RINEX file."
 msgstr "Неизвестный формат RINEX-файла базовой станции."
 
-#: app/utils/error_handlers.py:51
+#: app/utils/error_handlers.py:62
+msgid ""
+"No RINEX navigation files were found.\n"
+"\n"
+"Observation and navigation RINEX files must have the same filenames."
+msgstr ""
+"Не найдены навигационные файлы RINEX.\n"
+"\n"
+"Файлы наблюдений и навигационные файлы должны иметь одинаковые имена файлов."
+
+#: app/utils/error_handlers.py:70
 msgid "Error: "
 msgstr "Ошибка: "
 
-#: app/utils/error_handlers.py:105
+#: app/utils/error_handlers.py:116
 msgid ""
 "Rover RINEX has missed epochs. Result for the listed events will be empty.\n"
 "Do you want to continue?"
@@ -453,133 +532,133 @@ msgstr ""
 "перечисленных\n"
 "ниже моментов фотографирования не будет вычислен. Продолжить?"
 
-#: app/utils/error_handlers.py:112
+#: app/utils/error_handlers.py:123
 msgid "Event"
 msgstr "Моменты фотографирования"
 
-#: app/utils/error_handlers.py:121
+#: app/utils/error_handlers.py:132
 msgid "Continue"
 msgstr "Продолжить"
 
-#: app/utils/error_handlers.py:125
+#: app/utils/error_handlers.py:136
 msgid "Cancel processing"
 msgstr "Прекратить обработку"
 
-#: app/utils/error_handlers.py:157
+#: app/utils/error_handlers.py:168
 msgid "The files listed below were not added to processing table:"
 msgstr "Файлы, перечисленные ниже, не будут добавлены в обработку:"
 
-#: app/utils/error_handlers.py:162
+#: app/utils/error_handlers.py:173
 msgid "Type"
 msgstr "Тип"
 
-#: app/utils/error_handlers.py:162
+#: app/utils/error_handlers.py:173
 msgid "Reason"
 msgstr "Причина"
 
-#: app/utils/error_handlers.py:162
+#: app/utils/error_handlers.py:173
 msgid "File"
 msgstr "Файл"
 
-#: app/utils/error_handlers.py:181
+#: app/utils/error_handlers.py:192
 msgid "OK"
 msgstr ""
 
-#: app/utils/error_handlers.py:203
+#: app/utils/error_handlers.py:214
 msgid "No time events in rover RINEX file. Continue?"
 msgstr ""
 "Нет меток времени в RINEX-файле ровера.\n"
 "Продолжить?"
 
-#: app/utils/error_handlers.py:210
+#: app/utils/error_handlers.py:221
 msgid "No epochs in rover RINEX file"
 msgstr "Нет эпох в RINEX-файле ровера"
 
-#: app/utils/error_handlers.py:225
+#: app/utils/error_handlers.py:236
 msgid "Couldn't get time bounds from Rover RINEX."
 msgstr "Невозможно извлечь временные границы RINEX-файла ровера."
 
-#: app/utils/error_handlers.py:233
+#: app/utils/error_handlers.py:244
 msgid "Couldn't get time bounds from Base RINEX."
 msgstr "Невозможно извлечь временные границы RINEX-файла базы."
 
-#: app/utils/error_handlers.py:240
+#: app/utils/error_handlers.py:251
 msgid ""
 "Start time of rover RINEX file is earlier than base RINEX start observation "
 "time."
 msgstr ""
 "Наблюдения в файле ровера начинаются раньше, чем в файле базовой станции."
 
-#: app/utils/error_handlers.py:242 app/utils/error_handlers.py:250
+#: app/utils/error_handlers.py:253 app/utils/error_handlers.py:261
 msgid "Continue?"
 msgstr "Продолжить?"
 
-#: app/utils/error_handlers.py:248
+#: app/utils/error_handlers.py:259
 msgid ""
 "End time of rover RINEX file is later than base RINEX end observation time."
 msgstr ""
 "Наблюдения в файле ровера заканчиваются позже, чем в файле базовой станции."
 
-#: app/utils/error_handlers.py:262
+#: app/utils/error_handlers.py:273
 msgid "Error during parsing Geoscan telemetry file {}. Is it correct?"
 msgstr ""
 
-#: app/utils/error_handlers.py:272
+#: app/utils/error_handlers.py:283
 msgid ""
 "First time event in telemetry file {} is later than last observation in "
 "rover RINEX file"
 msgstr ""
 
-#: app/utils/error_handlers.py:278
+#: app/utils/error_handlers.py:289
 msgid ""
 "Last time event in telemetry file {} is earlier than first observation in "
 "rover RINEX file"
 msgstr ""
 
-#: app/utils/error_handlers.py:283
+#: app/utils/error_handlers.py:294
 msgid ""
 "Start time event in telemetry file {} is earlier than rover start "
 "observation time.\n"
 "Continue?"
 msgstr ""
 
-#: app/utils/error_handlers.py:288
+#: app/utils/error_handlers.py:299
 msgid ""
 "Last time event in telemetry file {} is later than rover end observation "
 "time.\n"
 "Continue?"
 msgstr ""
 
-#: app/utils/error_handlers.py:309
+#: app/utils/error_handlers.py:320
 msgid "Invalid coordinates values"
 msgstr "Недопустимые значения координат"
 
-#: app/utils/error_handlers.py:329
+#: app/utils/error_handlers.py:340
 msgid "Unkhown satellite in excluded satellites form:"
 msgstr "Неизвестные спутники в строке исключенных спутников:"
 
-#: app/utils/error_handlers.py:330
+#: app/utils/error_handlers.py:341
 msgid "Supported satellite groups: GPS (G), GLONASS (R)."
 msgstr ""
 "Поддерживаемые группировки спутников для обработки: GPS(G), ГЛОНАСС (R)."
 
-#: app/utils/error_handlers.py:345
+#: app/utils/error_handlers.py:356
 msgid "Invalid path to {} RINEX file."
 msgstr "Путь к RINEX-файлу (.YYo)."
 
-#: app/utils/error_handlers.py:350
+#: app/utils/error_handlers.py:361
 msgid "Unknown format to {} RINEX file."
 msgstr ""
 
-#: app/utils/error_handlers.py:368
+#: app/utils/error_handlers.py:379
 msgid "Set telemetry file path to continue"
 msgstr "Укажите путь к файлу телеметрии"
 
-#: app/utils/error_handlers.py:373
+#: app/utils/error_handlers.py:384
 msgid "Invalid path to Geoscan {} file."
 msgstr ""
 
-#: app/utils/error_handlers.py:378
+#: app/utils/error_handlers.py:389
 msgid "Unknown format of Geoscan {} file."
 msgstr ""
 
@@ -606,6 +685,9 @@ msgid "Pos file with computed result is empty"
 msgstr ""
 "Не удалось рассчитать точные координаты. Координаты базовой станции указаны "
 "верно?"
+
+#~ msgid "Shrink Rover RINEX file: finished!"
+#~ msgstr "Завершено!"
 
 #~ msgid "Loading data..."
 #~ msgstr "Загружаем данные..."

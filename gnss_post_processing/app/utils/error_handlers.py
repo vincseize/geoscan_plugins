@@ -59,6 +59,9 @@ ROVER_BASE_ERRORS = [
     _("Unknown format to base RINEX file."),
 ]
 
+RINEX_NAVIGATION_ERROR = _("No RINEX navigation files were found.\n\n"
+                           "Observation and navigation RINEX files must have the same filenames.")
+
 
 def custom_user_error(text: (str, Exception), write_to_status=True, status_label=None):
     if isinstance(text, str):

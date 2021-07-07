@@ -16,7 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 """
 
-from collections import OrderedDict
+from collections import OrderedDict, defaultdict
 from datetime import datetime, timedelta
 import os
 import re
@@ -34,19 +34,31 @@ def reproject_point(source_crs, target_crs, north, east, height):
 
 
 class PositionMerger:
-    def __init__(self, pos_file, telemetry_file, output, reproject, crs=None, extension=False, quality=None):
+    def __init__(self, pos_file, pos_track_file, telemetry_file, output, reproject,
+                 crs=None, extension=False, quality=None,
+                 use_estimated_accuracy=True, q1_accuracy=0.1, q2_accuracy=1,
+                 use_telemetry_coordinates=True):
         self.crs = crs
         self.extension = extension
         self.pos_file = pos_file
+        self.pos_track_file = pos_track_file
         self.telemetry_file = telemetry_file
         self.output = output
         self.reproject = reproject
         self.quality = quality
+        self.use_estimated_accuracy = use_estimated_accuracy
+        self.use_telemetry_coordinates = use_telemetry_coordinates
+        self.q_accuracy = defaultdict(lambda: 10)
+        self.q_accuracy.update({1: q1_accuracy, 2: q2_accuracy})
 
         self.title = None
 
     def parse_pos_file(self):
         pos_parser = PosParser(file=self.pos_file)
+        return pos_parser.positions
+
+    def parse_pos_track_file(self):
+        pos_parser = PosParser(file=self.pos_track_file)
         return pos_parser.positions
 
     @classmethod
@@ -122,7 +134,8 @@ class PositionMerger:
                                     target_crs=self.reproject[1],
                                     north=float(positions[event]['lat']),
                                     east=float(positions[event]['lon']),
-                                    height=float(positions[event]['height']))
+                                    height=float(positions[event]['height'])
+                                    )
         else:
             point = (positions[event]['lon'],
                      positions[event]['lat'],
@@ -130,19 +143,42 @@ class PositionMerger:
         return point
 
     @staticmethod
-    def find_nearest_position(event_time, pos_positions, limit=0.1):
+    def __find_nearest_position(event_time, pos_positions, limit=0.1):
         for time, data in pos_positions.items():
             if abs(time - event_time) < timedelta(seconds=limit):
                 return time
         return None
 
+    @staticmethod
+    def interpolate_position(event_time, pos_positions):
+        before = event_time.replace(microsecond=event_time.microsecond // 10**5 * 10**5)
+        after = before + timedelta(seconds=0.1)
+        w = event_time.microsecond / 10**6
+        if before in pos_positions and after in pos_positions:
+            pos_before, pos_after = pos_positions[before], pos_positions[after]
+            try:
+                interpolated = dict(
+                    lat=round((w * pos_before['lat'] + (1 - w) * pos_after['lat']), 9),
+                    lon=round((w * pos_before['lon'] + (1 - w) * pos_after['lon']), 9),
+                    height=round((w * pos_before['height'] + (1 - w) * pos_after['height']), 3),
+                    quality=max(pos_before['quality'], pos_after['quality']),
+                    sdn=max(pos_before['sdn'], pos_after['sdn']),
+                    sde=max(pos_before['sde'], pos_after['sde']),
+                    sdu=max(pos_before['sdu'], pos_after['sdu']),
+                )
+                return interpolated
+            except KeyError:
+                return None
+        else:
+            return None
+
     def build_estimated_pos_line(self, name, pos_event, telemetry_event, pos_positions, telemetry_positions):
         point = self.get_point(pos_event, pos_positions)
         line = [
             name,
-            str(point[1]),
-            str(point[0]),
-            str(point[2]),
+            str(round(point[1], 9)),
+            str(round(point[0], 9)),
+            str(round(point[2], 3)),
             telemetry_positions[telemetry_event]['roll'],
             telemetry_positions[telemetry_event]['pitch'],
             telemetry_positions[telemetry_event]['yaw'],
@@ -150,9 +186,7 @@ class PositionMerger:
             pos_positions[pos_event]['sdn'],
             pos_positions[pos_event]['sde'],
             pos_positions[pos_event]['sdu'],
-            "{}.{}.{} {}:{}:{}\n".format(telemetry_event.year, telemetry_event.month, telemetry_event.day,
-                                         telemetry_event.hour, telemetry_event.minute,
-                                         telemetry_event.second + telemetry_event.microsecond / 1000000)
+            telemetry_event.strftime('%Y.%m.%d %H:%M:%S.%f\n'),
         ]
         return line
 
@@ -160,9 +194,9 @@ class PositionMerger:
         point = self.get_point(event, telemetry_positions)
         line = [
             name,
-            str(point[1]),
-            str(point[0]),
-            str(point[2]),
+            str(round(point[1], 9)),
+            str(round(point[0], 9)),
+            str(round(point[2], 3)),
             telemetry_positions[event]['roll'],
             telemetry_positions[event]['pitch'],
             telemetry_positions[event]['yaw'],
@@ -170,9 +204,7 @@ class PositionMerger:
             '',
             '',
             '',
-            "{}.{}.{} {}:{}:{}\n".format(event.year, event.month, event.day,
-                                         event.hour, event.minute,
-                                         event.second + event.microsecond / 1000000)
+            event.strftime('%Y.%m.%d %H:%M:%S.%f\n'),
         ]
         if not silently:
             print("{}: can't find in adjusted coordinates, "
@@ -182,36 +214,43 @@ class PositionMerger:
     def merge(self, silently=False):
         self.result = list()
         self.result.append(
-            "# Processed by Geoscan GNSS Post Processing plugin from Agisoft Metashape.\n" \
+            "# Processed by Geoscan GNSS Post Processing plugin (Agisoft Metashape).\n" \
             "# Time: {}.\n" \
             "# User: {}.\n" \
-            "# Fixed: {} %.\n" \
+            "# Fixed solutions: {} %.\n" \
             "# file\t lat\t lon\t height\t roll\t pitch\t yaw\t quality\t sdn\t sde\t sdu\t time\n".format(
                 datetime.now().replace(microsecond=0), os.getlogin(), round(self.quality, 1))
         )
 
         pos_positions = self.parse_pos_file()
+        pos_track_positions = self.parse_pos_track_file()
         telemetry_positions = self.parse_telemetry_file(self.telemetry_file)
         self.nav_positions = list()
 
-        for tel_event in telemetry_positions.keys():
-            name = telemetry_positions[tel_event]['name'] if self.extension else telemetry_positions[tel_event]['name'].split('.')[0]
+        for photo_event in telemetry_positions.keys():
+            if self.extension:
+                name = telemetry_positions[photo_event]['name']
+            else:
+                name = os.path.splitext(telemetry_positions[photo_event]['name'])[0]
             self.title = name.split('.')[0] + '_GNSS' if not self.title else self.title
 
-            if tel_event in pos_positions:
-                line = self.build_estimated_pos_line(name=name, pos_event=tel_event, telemetry_event=tel_event,
+            if photo_event in pos_positions:
+                line = self.build_estimated_pos_line(name=name, pos_event=photo_event, telemetry_event=photo_event,
                                                      pos_positions=pos_positions, telemetry_positions=telemetry_positions)
             else:
-                nearest_pos_event = self.find_nearest_position(tel_event, pos_positions)
-                if nearest_pos_event:
-                    line = self.build_estimated_pos_line(name=name, pos_event=nearest_pos_event, telemetry_event=tel_event,
+                interpolated = self.interpolate_position(photo_event, pos_track_positions)
+                if interpolated:
+                    pos_positions[photo_event] = interpolated
+                    line = self.build_estimated_pos_line(name=name, pos_event=photo_event, telemetry_event=photo_event,
                                                          pos_positions=pos_positions,
                                                          telemetry_positions=telemetry_positions)
-                else:
-                    line = self.build_navigation_pos_line(name=name, event=tel_event,
+                elif self.use_telemetry_coordinates:
+                    line = self.build_navigation_pos_line(name=name, event=photo_event,
                                                           telemetry_positions=telemetry_positions,
                                                           silently=silently)
                     self.nav_positions.append(name)
+                else:
+                    continue
 
             self.result.append(line)
 
@@ -233,20 +272,26 @@ class PositionMerger:
         root.set("version", "1.2.0")
         cameras = ET.SubElement(root, 'cameras')
         for i in range(1, len(self.result)):
+            label, y, x, z, roll, pitch, yaw, quality, sdn, sde, sdu, event_time = self.result[i]
             camera = ET.SubElement(cameras, 'camera')
-            camera.set("label", self.result[i][0])
+            camera.set("label", label)
             c_reference = ET.SubElement(camera, 'reference')
-            c_reference.set("x", str(self.result[i][2]))
-            c_reference.set("y", str(self.result[i][1]))
-            c_reference.set("z", str(self.result[i][3]))
-            c_reference.set("roll", str(self.result[i][4]))
-            c_reference.set("pitch", str(self.result[i][5]))
-            c_reference.set("yaw", str(self.result[i][6]))
+            c_reference.set("x", str(x))
+            c_reference.set("y", str(y))
+            c_reference.set("z", str(z))
+            c_reference.set("roll", str(roll))
+            c_reference.set("pitch", str(pitch))
+            c_reference.set("yaw", str(yaw))
             c_reference.set("sypr", "10")
-            if self.result[i][0] in self.nav_positions:
+            if label in self.nav_positions:
                 c_reference.set("enabled", "false")
             else:
-                c_reference.set("sxyz", "0.15")
+                if self.use_estimated_accuracy:
+                    c_reference.set("sx", str(sde))
+                    c_reference.set("sy", str(sdn))
+                    c_reference.set("sz", str(sdu))
+                else:
+                    c_reference.set("sxyz", str(self.q_accuracy[quality]))
                 c_reference.set("enabled", "true")
 
         if self.crs:

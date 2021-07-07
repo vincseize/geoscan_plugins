@@ -392,15 +392,22 @@ def update_gnss_processing_parameters(antenna_height: str, base_north: str, base
             "is_gps": is_gps, "is_glonass": is_glonass, "elevation_mask": elevation_mask, "excluded_sats": excluded_sats}
 
 
-def merge_telemetry_with_gnss(processing_dir, pos_file, telemetry_file, crs, quality, silently=False):
+def merge_telemetry_with_gnss(processing_dir, pos_file, pos_track_file, telemetry_file,
+                              crs, fixed_value,
+                              use_estimated_accuracy=True, q1_accuracy=0.1, q2_accuracy=1,
+                              use_telemetry_coordinates=True,
+                              silently=False):
     output = os.path.join(processing_dir, 'merged_events')
-    chunk = Metashape.app.document.chunk
-    extension = True if len(chunk.cameras) > 0 and len(chunk.cameras[0].label.split('.')) > 1 else False
 
     if telemetry_file and os.path.exists(telemetry_file):
-        merger = PositionMerger(pos_file=pos_file, telemetry_file=telemetry_file, quality=quality,
-                                output=output, extension=extension,
-                                reproject=[Metashape.CoordinateSystem("EPSG::4326"), crs])
+        merger = PositionMerger(pos_file=pos_file, pos_track_file=pos_track_file,
+                                telemetry_file=telemetry_file, quality=fixed_value,
+                                output=output, extension=True,
+                                reproject=[Metashape.CoordinateSystem("EPSG::4326"), crs],
+                                use_estimated_accuracy=use_estimated_accuracy,
+                                q1_accuracy=q1_accuracy, q2_accuracy=q2_accuracy,
+                                use_telemetry_coordinates=use_telemetry_coordinates
+                                )
         merger.merge(silently=silently)
     else:
         merger = None
@@ -454,6 +461,19 @@ def create_report(processing_data, export_dir, report_time=""):
                 cell.alignment = wrap_alignment
 
     wb.save(os.path.join(export_dir, "processing_report_{}.xlsx".format(report_time)))
+
+
+def find_rinex_files(obs_path):
+    dir_, obs = os.path.dirname(obs_path), os.path.basename(obs_path)
+    nav = None
+    gnav = None
+    for file in filter(lambda x: os.path.splitext(x)[0] == os.path.splitext(obs)[0], os.listdir(dir_)):
+        name, ext = os.path.splitext(file)
+        if re.match(r"\.(?:\d\d[nN]|nav|NAV)", ext):
+            nav = os.path.join(dir_, file)
+        if re.match(r"\.(?:\d\d[gG]|gnav|GNAV)", ext):
+            gnav = os.path.join(dir_, file)
+    return obs_path, nav, gnav
 
 
 if __name__ == '__main__':

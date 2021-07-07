@@ -17,5 +17,5 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 """
 
 NAME = "GNSS Post Processing"
-VERSION = "1.3.5"
+VERSION = "1.3.8"
 HELP = "https://github.com/geoscan/geoscan_plugins/blob/main/gnss_post_processing#readme"
