@@ -28,6 +28,8 @@ def init_gnss_post_processing_translations(ui):
     # tabs
     ui.tabWidget.setTabText(0, _("Single files"))
     ui.tabWidget.setTabText(1, _("Single base + Multiple rovers"))
+    ui.tabWidget.setTabText(2, _("Settings"))
+    ui.tabWidget.setTabText(3, _("GNSS Utilities"))
 
     # tab1
 
@@ -98,15 +100,6 @@ def init_gnss_post_processing_translations(ui):
     ui.tab2_pushButton.setText(_("Find flights in selected directory"))
     ui.tab2_FindFlightsSettingsPushButton.setText(_("Search flights settings"))
 
-    # processing parameters
-    ui.Parameters_groupBox.setTitle(_("Processing parameters"))
-
-    ui.glonass_checkBox.setText(_("GLONASS"))
-    ui.ElevMask_label.setText(_("Elevation mask (°):"))
-
-    ui.ExcludedSatellites_label.setText(_("Excluded satellites:"))
-    ui.ExampleExclude_label.setText(_("Example: G10, R07"))
-
     # menu
     ui.plot_track_pushButton.setText(_("Plot track"))
     ui.plot_marks_pushButton.setText(_("Plot marks"))
@@ -117,6 +110,38 @@ def init_gnss_post_processing_translations(ui):
     ui.RtkLibInfo_label.setText(_('<html><head/><body><p><span style=" color:#8b8b8b;">'
                                   'Powered by RTKLIB 2.4.3 Demo5 b34b'
                                   '</span></p></body></html>'))
+
+    #settings
+    # processing parameters
+    ui.Parameters_groupBox.setTitle(_("Processing parameters"))
+
+    ui.glonass_checkBox.setText(_("GLONASS"))
+    ui.ElevMask_label.setText(_("Elevation mask (°):"))
+
+    ui.ExcludedSatellites_label.setText(_("Excluded satellites:"))
+    ui.ExampleExclude_label.setText(_("Example: G10, R07"))
+
+    # events accuracy
+    ui.Accuracy_groupBox.setTitle(_("Events accuracy in Agisoft Metashape project"))
+
+    ui.EstimatedAccuracy_radioButton.setText(_("Use estimated accuracies"))
+    ui.PredefinedAccuracy_radioButton.setText(_("Use predefined accuracies for each solution"))
+
+    ui.Q1Label.setText(_("Q1 (fixed):"))
+    ui.Q2Label.setText(_("Q2 (float):"))
+
+    # other
+    ui.UseNavCoordsCheckBox.setText(_("Use event coordinates from telemetry file if no solution"))
+
+    # gnss utilities
+    # shrink rover rinex
+    ui.ShrinkRover_groupBox.setTitle(_("Shrink Rover RINEX file"))
+    ui.ShrinkRover_label.setText(_("Shrink Rover RINEX file by removing epochs that are not near the event\n"
+                                   "To set the number of epochs that should be near the event use Epochs number per event."))
+    ui.ShrinkRoverEpochs_label.setText(_("Epochs number per event:"))
+    ui.ShrinkRoverFile_label.setText(_("RINEX file:"))
+    ui.ShrinkRoverFile_pushButton.setText(_("Open"))
+    ui.ShrinkRover_pushButton.setText(_("Shrink Rover RINEX file"))
 
 
 

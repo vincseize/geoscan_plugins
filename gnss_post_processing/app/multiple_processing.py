@@ -42,7 +42,7 @@ from gnss_post_processing.app.utils.error_handlers import check_missed_flights_d
 from gnss_post_processing.app.utils.exceptions import InputDataError, IndexErrorInPosFile, NoEpochs, NoEvents
 from gnss_post_processing.app.utils.helpers import set_crs, open_base_rinex, find_flights_data, \
     find_matches_in_flights_data, is_rinex, copy_rinex, upgrade_rover_rinex, create_configuration_file, \
-    update_gnss_processing_parameters, rtklib_solutions, merge_telemetry_with_gnss, create_report
+    update_gnss_processing_parameters, rtklib_solutions, merge_telemetry_with_gnss, create_report, find_rinex_files
 from gnss_post_processing.app.utils.pos_parser import PosParser
 
 
@@ -206,9 +206,9 @@ class SingleBaseMultipleFlights:
             telemetry_path = telemetry if full_path else os.path.basename(telemetry)
             table.setItem(row, 2, QtWidgets.QTableWidgetItem(telemetry_path))
 
-        self.ui.setMaximumSize(1005, 950)
-        self.ui.resize(1005, 950)
+        self.ui.resize(956, 650)
 
+    @log_method_by_crash_reporter(plugin_name=NAME, version=VERSION)
     def run(self):
         if self.active_tab != 1:
             return
@@ -217,52 +217,56 @@ class SingleBaseMultipleFlights:
 
         export_path = Metashape.app.getExistingDirectory()
 
-        self.ui.status_Label.setText("Collecting base station data...")
+        self.ui.status_Label.setText(_("Collecting base station data..."))
         Metashape.app.update()
 
         filtered_matches = list(filter(lambda item: self.match_is_checked(row=item[0]), enumerate(self.matches)))
 
         common_dir = os.path.join(tempfile.gettempdir(), "gnss_temp_{}".format(datetime.now().strftime("%m_%d_%H_%M_%S")))
-        base_obs, base_nav, base_gnav = self.init_base_file(common_dir=common_dir)
+        try:
+            base_obs, base_nav, base_gnav = self.init_base_file(common_dir=common_dir)
+            i = 0
+            self.update_progress(i, len(filtered_matches))
 
-        unexpected_errors = list()
-        i = 0
-        self.update_progress(i, len(filtered_matches))
-        with concurrent.futures.ThreadPoolExecutor(multiprocessing.cpu_count()) as executor:
-            futures = dict()
-            for n, match in filtered_matches:
-                future = executor.submit(self.create_task, export_path=export_path, match=match,
-                                         common_dir=common_dir,
-                                         base_obs=base_obs, base_nav=base_nav, base_gnav=base_gnav)
-                futures[future] = match
+            with concurrent.futures.ThreadPoolExecutor(multiprocessing.cpu_count()) as executor:
+                futures = dict()
+                for n, match in filtered_matches:
+                    future = executor.submit(self.create_task, export_path=export_path, match=match,
+                                             common_dir=common_dir,
+                                             base_obs=base_obs, base_nav=base_nav, base_gnav=base_gnav)
+                    futures[future] = match
 
-            for future in concurrent.futures.as_completed(futures):
-                try:
-                    future.result()
-                    i += 1
-                    self.update_progress(i, len(filtered_matches))
-                except Exception:
-                    match = futures[future]
-                    match_name = os.path.splitext(os.path.basename(match['rinex']))[0] + '_' + \
-                                 os.path.splitext(os.path.basename(match['telemetry']))[0]
-                    unexpected_errors.append((match_name, traceback.format_exc()))
+                for future in concurrent.futures.as_completed(futures):
+                    try:
+                        future.result()
+                        i += 1
+                        self.update_progress(i, len(filtered_matches))
+                    except Exception as e:
+                        match = futures[future]
+                        match_name = os.path.splitext(os.path.basename(match['rinex']))[0] + '_' + \
+                                     os.path.splitext(os.path.basename(match['telemetry']))[0]
+                        self.processing[match_name]['errors'].append(
+                            'System Error: {}\nDetails in log file.'.format(type(e).__name__)
+                        )
+                        with open(os.path.join(export_path, 'error_log_{}.txt'.format(match_name)), 'w') as log_f:
+                            log_f.write(traceback.format_exc())
+        except Exception:
+            rmtree(common_dir, ignore_errors=True)
+            self.ui.status_Label.setText("Unexpected error during processing")
+            Metashape.app.update()
+            raise SystemError
 
-        rmtree(common_dir)
-
+        rmtree(common_dir, ignore_errors=True)
         report_time = datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
-        with open(os.path.join(export_path, 'processing_log_{}.txt'.format(report_time)), 'w') as file:
-            unexpected_errors_str = "\n\n".join(["{}: {}".format(match, error) for match, error in unexpected_errors])
-            processing_descriptions = "\n\n".join([str(k) + str(v) for k, v in self.processing.items()])
-            file.write(unexpected_errors_str + '\n\n' + processing_descriptions)
-
         create_report(processing_data=self.processing, export_dir=export_path, report_time=report_time)
         self.ui.status_Label.setText("Finished!")
 
-    def create_task(self, export_path, match, common_dir, base_obs, base_nav, base_gnav):
+    def create_task(self, export_path, match, common_dir, base_obs, nav_file, gnav_file):
         match_name = self.collect_data_for_match(
             match=match,
             common_dir=common_dir,
-            base_obs=base_obs, base_nav=base_nav, base_gnav=base_gnav)
+            base_obs=base_obs, nav_file=nav_file, gnav_file=gnav_file)
+
         if match_name is not None:
             self.process_by_rtklib(export_path=export_path, processing_item=self.processing[match_name], name=match_name)
             rmtree(os.path.join(common_dir, match_name))
@@ -281,38 +285,43 @@ class SingleBaseMultipleFlights:
         base_obs, base_nav, base_gnav = copy_rinex(path=self.base_rinex, processing_dir=base_dir)
         return base_obs, base_nav, base_gnav
 
-    def collect_data_for_match(self, match, common_dir, base_obs, base_nav, base_gnav):
+    def collect_data_for_match(self, match, common_dir, base_obs, nav_file, gnav_file):
         error = False
-
         rinex_name = os.path.splitext(os.path.basename(match['rinex']))[0]
         telemetry_name = os.path.splitext(os.path.basename(match['telemetry']))[0]
         match_name = rinex_name + '_' + telemetry_name
         self.processing[match_name] = {'input': {}, 'errors': [], 'warnings': {}, 'solutions': {}}
         rover_path, telemetry1 = match['rinex'], match['telemetry']
         processing_dir = os.path.join(common_dir, match_name)
-        if not os.path.exists(processing_dir):
-            os.makedirs(processing_dir)
-        copy_rinex(path=rover_path, processing_dir=processing_dir, exclude_list=['o'])
+        if nav_file is None:
+            rover_obs, nav_file, gnav_file = find_rinex_files(match['rinex'])
         try:
-            upgraded_rover_obs, start_obs, end_obs, rinex_parser = upgrade_rover_rinex(rover_path, processing_dir)
-            is_correct_rover_data(rp=rinex_parser, parent=self.ui,
-                                  transfer_warnings_to_list=self.processing[match_name]['warnings'])
-        except (InputDataError, NoEvents, NoEpochs) as e:
-            self.processing[match_name]['errors'].append("{}: {}".format(type(e).__name__, e))
+            if not os.path.exists(processing_dir):
+                os.makedirs(processing_dir)
+            copy_rinex(path=rover_path, processing_dir=processing_dir, exclude_list=['o'])
+            try:
+                upgraded_rover_obs, start_obs, end_obs, rinex_parser = upgrade_rover_rinex(rover_path, processing_dir)
+                is_correct_rover_data(rp=rinex_parser, parent=self.ui,
+                                      transfer_warnings_to_list=self.processing[match_name]['warnings'])
+            except (InputDataError, NoEvents, NoEpochs) as e:
+                self.processing[match_name]['errors'].append("{}: {}".format(type(e).__name__, e))
+                error = True
+        except Exception:
             error = True
-
-        config_path = os.path.join(processing_dir, 'rtklib_configuration.conf')
-        self.processing[match_name]['warnings']['missed_events'] = [x['data'] for x in rinex_parser.missed_events] if not error else [""]
-        self.processing[match_name]['input']['processing_dir'] = processing_dir
-        self.processing[match_name]['input']['base_obs'] = base_obs
-        self.processing[match_name]['input']['base_nav'] = base_nav
-        self.processing[match_name]['input']['base_gnav'] = base_gnav
-        self.processing[match_name]['input']['rover_obs'] = upgraded_rover_obs if not error else None
-        self.processing[match_name]['input']['source_rover_obs'] = rover_path
-        self.processing[match_name]['input']['start_obs'] = start_obs if not error else None
-        self.processing[match_name]['input']['end_obs'] = end_obs if not error else None
-        self.processing[match_name]['input']['config'] = config_path
-        self.processing[match_name]['input']['telemetry'] = match['telemetry']
+            traceback.print_exc()
+        finally:
+            config_path = os.path.join(processing_dir, 'rtklib_configuration.conf')
+            self.processing[match_name]['warnings']['missed_events'] = [x['data'] for x in rinex_parser.missed_events] if not error else [""]
+            self.processing[match_name]['input']['processing_dir'] = processing_dir
+            self.processing[match_name]['input']['base_obs'] = base_obs
+            self.processing[match_name]['input']['base_nav'] = nav_file
+            self.processing[match_name]['input']['base_gnav'] = gnav_file
+            self.processing[match_name]['input']['rover_obs'] = upgraded_rover_obs if not error else None
+            self.processing[match_name]['input']['source_rover_obs'] = rover_path
+            self.processing[match_name]['input']['start_obs'] = start_obs if not error else None
+            self.processing[match_name]['input']['end_obs'] = end_obs if not error else None
+            self.processing[match_name]['input']['config'] = config_path
+            self.processing[match_name]['input']['telemetry'] = match['telemetry']
 
         return match_name if not error else None
 
@@ -359,9 +368,13 @@ class SingleBaseMultipleFlights:
             merger = merge_telemetry_with_gnss(
                 processing_dir=data['processing_dir'],
                 pos_file=os.path.join(results[success_solution]['path'], 'ppk_track_events.pos'),
+                pos_track_file=os.path.join(results[success_solution]['path'], 'ppk_track.pos'),
                 telemetry_file=data['telemetry'],
                 crs=self.crs,
-                quality=results[success_solution]['quality'],
+                fixed_value=results[success_solution]['quality'],
+                use_estimated_accuracy=self.use_estimated_accuracies,
+                q1_accuracy=self.q1_accuracy, q2_accuracy=self.q2_accuracy,
+                use_telemetry_coordinates=self.use_telemetry_coordinates,
                 silently=True
             )
             if merger is not None:
@@ -448,6 +461,22 @@ class SingleBaseMultipleFlights:
     @property
     def active_tab(self):
         return self.ui.tabWidget.currentIndex()
+
+    @property
+    def use_estimated_accuracies(self):
+        return self.ui.EstimatedAccuracy_radioButton.isChecked()
+
+    @property
+    def q1_accuracy(self):
+        return self.ui.Q1DoubleSpinBox.value()
+
+    @property
+    def q2_accuracy(self):
+        return self.ui.Q2DoubleSpinBox.value()
+
+    @property
+    def use_telemetry_coordinates(self):
+        return self.ui.UseNavCoordsCheckBox.isChecked()
 
 
 class SearchFlightsSettings(QtWidgets.QDialog):

@@ -70,7 +70,7 @@ class PosParser:
                                       hour=int(time[0]), minute=int(time[1]), second=int(float(time[2])),
                                       microsecond=int(round((float(time[2]) - int(float(time[2]))), 3) * 1000000))
 
-                lat, lon= float(data_line[self.pos_indices['lat']]), float(data_line[self.pos_indices['lon']])
+                lat, lon = float(data_line[self.pos_indices['lat']]), float(data_line[self.pos_indices['lon']])
                 height = float(data_line[self.pos_indices['height']])
                 quality = int(data_line[self.pos_indices['quality']])
                 sdn = float(data_line[self.pos_indices['sdn']])
