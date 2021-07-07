@@ -32,7 +32,7 @@ def fix_mapinfo_ref(ref: osr.SpatialReference):
         try:
             dx, dy, dz, rx, ry, rz, k = list(map(float, [towgs84.group(i) for i in range(1, 8)]))
         except Exception:
-            return mapinfo_ref
+            return "CoordSys " + mapinfo_ref
 
         search_params = re.search(r"Earth Projection (.+)", mapinfo_ref)
         if search_params:
@@ -41,8 +41,8 @@ def fix_mapinfo_ref(ref: osr.SpatialReference):
             for i, param in zip(range(3, 10), [dx, dy, dz, -rx, -ry, -rz, k]):
                 values[i] = str(param)
             return "CoordSys Earth Projection " + ', '.join(values)
-        else:
-            return mapinfo_ref
+
+    return "CoordSys " + mapinfo_ref
 
 
 if __name__ == "__main__":
