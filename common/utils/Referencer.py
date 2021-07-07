@@ -114,13 +114,14 @@ class AbstractReferencer:
             self._ref_dict.update(ref_dict)
             PhotoScan.app.update()
 
-    def apply_offset(self):
+    def apply_offset(self, use_default_sensors: (None, dict) = None):
         """
         Split cameras by flight-camera (based on dir path). Applies offset and incline of sensor. Removes sensors
         without assigned cameras
+        :param use_default_sensors.
         :return: UnreferencedSensors instance — unreferenced sensors
         """
-        sensors_without_offset = add_sensors_offset(self.offsets_ref_path)
+        sensors_without_offset = add_sensors_offset(self.offsets_ref_path, use_default_sensors=use_default_sensors)
         remove_empty_sensors()
         return self.UnreferencedSensors(sensors_without_offset)
 

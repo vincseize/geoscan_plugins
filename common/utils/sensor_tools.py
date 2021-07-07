@@ -38,6 +38,20 @@ LOCATION_REF_DICT = {
     'g201_Naklon-Right': (0.37, -0.18, -0.01),
 }
 
+DEFAULT_SENSORS = {
+    'single': {
+        101: "g101_offset.json",
+        201: "g201_offset.json",
+        401: "g401_offset.json",
+        501: "g501_offset.json",
+        701: "g701_offset.json",
+    },
+    'double': {
+        201: ("g201_offset1.json", "g201_offset2.json"),
+        701: ("g701_offset1.json", "g701_offset2.json"),
+    }
+}
+
 LOCATION_REF_PATH = r'\\taiga\data\SupplementaryData\Cameras Calibration\Offsets'
 SENSOR_CALIBRATIONS_BASE_PATH = r'\\taiga\data\SupplementaryData\Cameras Calibration'
 
@@ -78,7 +92,8 @@ def duplicate_sensor(oldsensor, name=None):
     return sensor
 
 
-def add_sensors_offset(location_ref_path=LOCATION_REF_PATH, strict_offsets_match=True):
+def add_sensors_offset(location_ref_path=LOCATION_REF_PATH, strict_offsets_match=True,
+                       use_default_sensors: (None, dict) = None):
     chunk = PhotoScan.app.document.chunk
 
     if chunk is None:
@@ -120,8 +135,14 @@ def add_sensors_offset(location_ref_path=LOCATION_REF_PATH, strict_offsets_match
                 strict_offsets_match=strict_offsets_match
             )
         except OffsetResolveError:
-            traceback.print_exc()
-            sensors_without_offset.add(sensor)
+            day, fltype, bort, flnum = parse_sensor_label(sensor.label)
+            if use_default_sensors and (bort, fltype) in use_default_sensors:
+                location_reference, rotation_reference = get_default_offset_from_path(use_default_sensors[(bort, fltype)])
+                sensor.antenna.location_ref = PhotoScan.Vector(location_reference)
+                sensor.antenna.rotation_ref = PhotoScan.Vector(rotation_reference)
+            else:
+                traceback.print_exc()
+                sensors_without_offset.add(sensor)
         else:
             sensor.antenna.location_ref = PhotoScan.Vector(location_reference)
             sensor.antenna.rotation_ref = PhotoScan.Vector(rotation_reference)
@@ -131,6 +152,21 @@ def add_sensors_offset(location_ref_path=LOCATION_REF_PATH, strict_offsets_match
             camera.sensor = sensor
 
     return sensors_without_offset
+
+
+def get_default_offset_from_path(path, location_ref_path=LOCATION_REF_PATH):
+    try:
+        with open(path) as f:
+            ref_dict = json.loads(f.read())
+    except FileNotFoundError:
+        message = 'Cannot find default offset reference file from: "{}"'.format(path)
+        raise OffsetFileNotFoundError(message)
+
+    if "values" in ref_dict:
+        ref_dict = ref_dict["values"]
+    location = (ref_dict['x'], ref_dict['y'], ref_dict['z'])
+    rotation = (ref_dict['yaw'], ref_dict['pitch'], ref_dict['roll'])
+    return location, rotation
 
 
 def get_offset_reference(label, location_ref_path=LOCATION_REF_PATH, strict_offsets_match=True):

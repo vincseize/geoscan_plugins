@@ -33,22 +33,28 @@ def parse_cam_name_string(string):
     """
 
     day_pattern = re.compile(r'^20[\d]{2}_[\d]{2}_[\d]{2}_')
-    type_pattern = re.compile('|'.join(['(_%s_){1}' % str(i) for i in MATCH_PHOTOS_FLTYPE.keys()]))
-    flnum_pattern = re.compile(r'_f[0-9]+(_|.)')
+    flnum_pattern = re.compile(r'_f[0-9]+(_|.)', re.IGNORECASE)
     bort_pattern = re.compile(r'_g((101)|(201)|(401))b[\d]{5}_')
 
     searchday = re.search(day_pattern, string)
-    searchtype = re.search(type_pattern, string)
     searchflnum = re.search(flnum_pattern, string)
     searchbort = re.search(bort_pattern, string)
 
     bort = searchbort.group()[1:-1] if searchbort else None
     day = searchday.group()[:-1] if searchday else None
+
+    if day and bort:
+        type_pattern = re.compile(r'{}_(.+)_{}'.format(day, bort))
+        searchtype = re.search(type_pattern, string)
+        fltype = searchtype.group(1) if searchtype else None
+    else:
+        fltype = None
+
     if not day:
         day_pattern = re.compile(r'^[\d]{6,8}_')
         searchday = re.search(day_pattern, string)
         day = searchday.group()[:-1] if searchday else None
-    fltype = searchtype.group()[1:] if searchtype else None
+
     if fltype and fltype.endswith('_'):
         fltype = fltype[:-1]
     flnum = searchflnum.group()[1:-1] if searchflnum else None

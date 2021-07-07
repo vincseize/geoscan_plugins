@@ -53,3 +53,11 @@ def open_file(ui, extensions=None, line_edit=None, title="Open file", main_direc
         line_edit.setText(path.replace('/', '\\'))
     return path
 
+
+def save_file(ui, extension, title="Save file", main_directory=False):
+    path = QtWidgets.QFileDialog.getSaveFileName(
+        ui,
+        title,
+        os.path.expanduser("~") if not main_directory else main_directory,
+        extension)
+    return path[0] if path[0] else None
