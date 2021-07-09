@@ -233,7 +233,7 @@ class SingleBaseMultipleFlights:
                 for n, match in filtered_matches:
                     future = executor.submit(self.create_task, export_path=export_path, match=match,
                                              common_dir=common_dir,
-                                             base_obs=base_obs, base_nav=base_nav, base_gnav=base_gnav)
+                                             base_obs=base_obs, nav_file=base_nav, gnav_file=base_gnav)
                     futures[future] = match
 
                 for future in concurrent.futures.as_completed(futures):
